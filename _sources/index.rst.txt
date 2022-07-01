@@ -4,35 +4,26 @@ yolort 文档
 
 **yolort 是什么？**
 
-``yolort`` 专注于使目标检测任务的训练和推理更加无缝地结合在一起。
-
-``yolort`` focus on making the training and inference of the object detection task
-integrate more seamlessly together. ``yolort`` now adopts the same model
-structure as the official ``YOLOv5``. The significant difference is that we adopt
-the dynamic shape mechanism, and within this, we can embed both pre-processing
-(``letterbox``) and post-processing (``nms``) into the model graph, which
-simplifies the deployment strategy. In this sense, ``yolort`` makes it possible
-to be deployed more friendly on ``LibTorch``, ``ONNX Runtime``, ``TensorRT``, ``TVM``
-and so on.
+``yolort`` 专注于使目标检测任务的训练和推理更加无缝地结合在一起。 ``yolort`` 现在采用了与官方 ``YOLOv5`` 相同的模型结构。
+不同的是， ``yolort`` 采用了动态形状机制，在此机制中，可以将预处理（ ``letterbox``）和后处理（ ``nms``）嵌入到模型 graph 中，简化了部署策略。
+从这个意义上说， ``yolort`` 使得在 ``LibTorch``、 ``ONNX Runtime``、 ``TensorRT``、 ``TVM`` 等平台上的部署更加友好成为可能。
 
 .. _about-the-code:
 
-**About the code**
+**关于代码**
 
-Follow the design principle of `detr <https://github.com/facebookresearch/detr>`_:
+遵循 `detr <https://github.com/facebookresearch/detr>`_ 设计原则：
 
 ..
 
-   object detection should not be more difficult than classification, and should
-   not require complex libraries for training and inference.
+   目标检测不应该比分类更困难，也不应该需要复杂的库来进行训练和推理。
 
-``yolort`` is very simple to implement and experiment with. You like the implementation
-of torchvision's faster-rcnn, retinanet or detr? You like yolov5? You love yolort!
+``yolort`` 的实现和实验非常简单。你喜欢 torchvision 的 faster-rcnn，retinanet 或 detr 的实现吗？你喜欢 yolov5 吗？你会爱上 yolort！
 
-Quick get stated
+快速上手
 ================
 
-Read a source of image(s) and detect its objects:
+读取图像源并检测其目标：
 
 .. code:: python
 
@@ -47,10 +38,9 @@ Read a source of image(s) and detect its objects:
    # Perform inference on a list of image files
    predictions = model.predict(["bus.jpg", "zidane.jpg"])
 
-**Loading checkpoint from official yolov5**
+**从官方 yolov5 加载检查点**
 
-And we support loading the trained weights from YOLOv5. Please see our documents on what
-we `share`_ and how we `differ`_ from yolov5 for more details.
+支持从 YOLOv5 加载训练好的权重。请查看文档，了解与 yolov5 的 `share`_ 以及与yolov5的 `differ`_。
 
 .. _share: https://zhiqwang.com/yolov5-rt-stack/notebooks/how-to-align-with-ultralytics-yolov5.html
 .. _differ: https://zhiqwang.com/yolov5-rt-stack/notebooks/comparison-between-yolort-vs-yolov5.html
@@ -70,7 +60,7 @@ we `share`_ and how we `differ`_ from yolov5 for more details.
    img_path = "bus.jpg"
    predictions = model.predict(img_path)
 
-Use Cases and Solutions
+用例和解决方案
 =======================
 
 .. toctree::

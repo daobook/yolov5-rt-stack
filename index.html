@@ -58,7 +58,7 @@
     <link rel="shortcut icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Install yolort" href="installation.html" />
+    <link rel="next" title="安装 yolort" href="installation.html" />
   
    
 
@@ -106,7 +106,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/zhiqwang/yolov5-rt-stack/" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/daobook/yolov5-rt-stack/" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -172,7 +172,7 @@
        title="yolort documentation">YOLOv5 Runtime Stack</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/zhiqwang/yolov5-rt-stack/" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/daobook/yolov5-rt-stack/" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -198,7 +198,7 @@
     <li class="md-nav__item">
     
     
-      <a href="installation.html" class="md-nav__link">Install yolort</a>
+      <a href="installation.html" class="md-nav__link">安装 yolort</a>
       
     
     </li>
@@ -317,9 +317,9 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#index--page-root" class="md-nav__link">yolort 文档</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#quick-get-stated" class="md-nav__link">Quick get stated</a>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">快速上手</a>
         </li>
-        <li class="md-nav__item"><a href="#use-cases-and-solutions" class="md-nav__link">Use Cases and Solutions</a>
+        <li class="md-nav__item"><a href="#id2" class="md-nav__link">用例和解决方案</a>
         </li></ul>
             </nav>
         </li>
@@ -335,26 +335,18 @@
   <section id="yolort">
 <h1 id="index--page-root">yolort 文档<a class="headerlink" href="#index--page-root" title="Permalink to this heading">¶</a></h1>
 <p><strong>yolort 是什么？</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">yolort</span></code> 专注于使目标检测任务的训练和推理更加无缝地结合在一起。</p>
-<p><code class="docutils literal notranslate"><span class="pre">yolort</span></code> focus on making the training and inference of the object detection task
-integrate more seamlessly together. <code class="docutils literal notranslate"><span class="pre">yolort</span></code> now adopts the same model
-structure as the official <code class="docutils literal notranslate"><span class="pre">YOLOv5</span></code>. The significant difference is that we adopt
-the dynamic shape mechanism, and within this, we can embed both pre-processing
-(<code class="docutils literal notranslate"><span class="pre">letterbox</span></code>) and post-processing (<code class="docutils literal notranslate"><span class="pre">nms</span></code>) into the model graph, which
-simplifies the deployment strategy. In this sense, <code class="docutils literal notranslate"><span class="pre">yolort</span></code> makes it possible
-to be deployed more friendly on <code class="docutils literal notranslate"><span class="pre">LibTorch</span></code>, <code class="docutils literal notranslate"><span class="pre">ONNX</span> <span class="pre">Runtime</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorRT</span></code>, <code class="docutils literal notranslate"><span class="pre">TVM</span></code>
-and so on.</p>
-<p id="about-the-code"><strong>About the code</strong></p>
-<p>Follow the design principle of <a class="reference external" href="https://github.com/facebookresearch/detr">detr</a>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">yolort</span></code> 专注于使目标检测任务的训练和推理更加无缝地结合在一起。 <code class="docutils literal notranslate"><span class="pre">yolort</span></code> 现在采用了与官方 <code class="docutils literal notranslate"><span class="pre">YOLOv5</span></code> 相同的模型结构。
+不同的是， <code class="docutils literal notranslate"><span class="pre">yolort</span></code> 采用了动态形状机制，在此机制中，可以将预处理（ <code class="docutils literal notranslate"><span class="pre">letterbox</span></code>）和后处理（ <code class="docutils literal notranslate"><span class="pre">nms</span></code>）嵌入到模型 graph 中，简化了部署策略。
+从这个意义上说， <code class="docutils literal notranslate"><span class="pre">yolort</span></code> 使得在 <code class="docutils literal notranslate"><span class="pre">LibTorch</span></code>、 <code class="docutils literal notranslate"><span class="pre">ONNX</span> <span class="pre">Runtime</span></code>、 <code class="docutils literal notranslate"><span class="pre">TensorRT</span></code>、 <code class="docutils literal notranslate"><span class="pre">TVM</span></code> 等平台上的部署更加友好成为可能。</p>
+<p id="about-the-code"><strong>关于代码</strong></p>
+<p>遵循 <a class="reference external" href="https://github.com/facebookresearch/detr">detr</a> 设计原则：</p>
 <blockquote>
-<div><p>object detection should not be more difficult than classification, and should
-not require complex libraries for training and inference.</p>
+<div><p>目标检测不应该比分类更困难，也不应该需要复杂的库来进行训练和推理。</p>
 </div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">yolort</span></code> is very simple to implement and experiment with. You like the implementation
-of torchvision’s faster-rcnn, retinanet or detr? You like yolov5? You love yolort!</p>
-<section id="quick-get-stated">
-<h2 id="quick-get-stated">Quick get stated<a class="headerlink" href="#quick-get-stated" title="Permalink to this heading">¶</a></h2>
-<p>Read a source of image(s) and detect its objects:</p>
+<p><code class="docutils literal notranslate"><span class="pre">yolort</span></code> 的实现和实验非常简单。你喜欢 torchvision 的 faster-rcnn，retinanet 或 detr 的实现吗？你喜欢 yolov5 吗？你会爱上 yolort！</p>
+<section id="id1">
+<h2 id="id1">快速上手<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>读取图像源并检测其目标：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yolort.models</span> <span class="kn">import</span> <span class="n">yolov5s</span>
 
 <span class="c1"># Load model</span>
@@ -367,9 +359,8 @@ of torchvision’s faster-rcnn, retinanet or detr? You like yolov5? You love yol
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="s2">"bus.jpg"</span><span class="p">,</span> <span class="s2">"zidane.jpg"</span><span class="p">])</span>
 </pre></div>
 </div>
-<p><strong>Loading checkpoint from official yolov5</strong></p>
-<p>And we support loading the trained weights from YOLOv5. Please see our documents on what
-we <a class="reference external" href="https://zhiqwang.com/yolov5-rt-stack/notebooks/how-to-align-with-ultralytics-yolov5.html">share</a> and how we <a class="reference external" href="https://zhiqwang.com/yolov5-rt-stack/notebooks/comparison-between-yolort-vs-yolov5.html">differ</a> from yolov5 for more details.</p>
+<p><strong>从官方 yolov5 加载检查点</strong></p>
+<p>支持从 YOLOv5 加载训练好的权重。请查看文档，了解与 yolov5 的 <a class="reference external" href="https://zhiqwang.com/yolov5-rt-stack/notebooks/how-to-align-with-ultralytics-yolov5.html">share</a> 以及与yolov5的 <a class="reference external" href="https://zhiqwang.com/yolov5-rt-stack/notebooks/comparison-between-yolort-vs-yolov5.html">differ</a>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yolort.models</span> <span class="kn">import</span> <span class="n">YOLOv5</span>
 <span class="kn">from</span> <span class="nn">yolort.v5</span> <span class="kn">import</span> <span class="n">attempt_download</span>
 
@@ -385,12 +376,12 @@ we <a class="reference external" href="https://zhiqwang.com/yolov5-rt-stack/note
 </pre></div>
 </div>
 </section>
-<section id="use-cases-and-solutions">
-<h2 id="use-cases-and-solutions">Use Cases and Solutions<a class="headerlink" href="#use-cases-and-solutions" title="Permalink to this heading">¶</a></h2>
+<section id="id2">
+<h2 id="id2">用例和解决方案<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Install yolort</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">安装 yolort</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -436,12 +427,12 @@ we <a class="reference external" href="https://zhiqwang.com/yolov5-rt-stack/note
       <nav class="md-footer-nav__inner md-grid">
           
           
-            <a href="installation.html" title="Install yolort"
+            <a href="installation.html" title="安装 yolort"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Install yolort </span>
+                class="md-footer-nav__direction"> Next </span> 安装 yolort </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
