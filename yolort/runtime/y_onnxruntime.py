@@ -51,7 +51,7 @@ class PredictorORT:
         ort_device = ort.get_device()
         providers = None
 
-        enable_gpu = True if self.device == "cuda" else False
+        enable_gpu = self.device == "cuda"
         if ort_device == "GPU" and enable_gpu:
             providers = ["CUDAExecutionProvider"]
             logger.info("Set inference device to GPU")
@@ -65,8 +65,7 @@ class PredictorORT:
 
     @requires_module("onnxruntime")
     def _build_runtime(self):
-        runtime = ort.InferenceSession(self.engine_path, providers=self._providers)
-        return runtime
+        return ort.InferenceSession(self.engine_path, providers=self._providers)
 
     def default_loader(self, img_path: str) -> np.ndarray:
         """
@@ -96,9 +95,12 @@ class PredictorORT:
             predictions (Tuple[List[float], List[int], List[float, float]]):
                 stands for scores, labels and boxes respectively.
         """
-        inputs = dict((self._runtime.get_inputs()[i].name, inpt) for i, inpt in enumerate(inputs))
-        predictions = self._runtime.run(output_names=None, input_feed=inputs)
-        return predictions
+        inputs = {
+            self._runtime.get_inputs()[i].name: inpt
+            for i, inpt in enumerate(inputs)
+        }
+
+        return self._runtime.run(output_names=None, input_feed=inputs)
 
     def predict(self, x: Any, image_loader: Optional[Callable] = None) -> List[Dict[str, np.ndarray]]:
         """
@@ -131,7 +133,7 @@ class PredictorORT:
             return [samples]
 
         if contains_any_tensor(samples, dtype=np.ndarray):
-            return [sample for sample in samples]
+            return list(samples)
 
         if isinstance(samples, str):
             samples = [samples]

@@ -52,17 +52,13 @@ class YOLOHead(nn.Module):
         This is equivalent to self.head[idx](features),
         but torchscript doesn't support this yet
         """
-        num_blocks = 0
-        for m in self.head:
-            num_blocks += 1
+        num_blocks = sum(1 for _ in self.head)
         if idx < 0:
             idx += num_blocks
-        i = 0
         out = features
-        for module in self.head:
+        for i, module in enumerate(self.head):
             if i == idx:
                 out = module(features)
-            i += 1
         return out
 
     def forward(self, x: List[Tensor]) -> List[Tensor]:

@@ -61,7 +61,7 @@ class COCOEvaluator(Metric):
             dist_sync_fn=dist_sync_fn,
         )
         self._logger = logging.getLogger(__name__)
-        if isinstance(coco_gt, str) or isinstance(coco_gt, PosixPath):
+        if isinstance(coco_gt, (str, PosixPath)):
             with contextlib.redirect_stdout(io.StringIO()):
                 coco_gt = COCO(coco_gt)
         elif isinstance(coco_gt, COCO):
@@ -70,10 +70,10 @@ class COCOEvaluator(Metric):
             raise NotImplementedError(f"Currently not supports type {type(coco_gt)}")
 
         self.coco_gt = coco_gt
-        if eval_type == "yolov5":
-            self.category_id_maps = coco_gt.getCatIds()
-        elif eval_type == "torchvision":
+        if eval_type == "torchvision":
             self.category_id_maps = list(range(coco_gt.getCatIds()[-1] + 1))
+        elif eval_type == "yolov5":
+            self.category_id_maps = coco_gt.getCatIds()
         else:
             raise NotImplementedError(f"Currently not supports eval type {eval_type}")
 
@@ -116,8 +116,7 @@ class COCOEvaluator(Metric):
             # Summarize
             coco_eval.summarize()
 
-        results = self.derive_coco_results()
-        return results
+        return self.derive_coco_results()
 
     def derive_coco_results(self, class_names: Optional[List[str]] = None):
         """
@@ -149,7 +148,10 @@ class COCOEvaluator(Metric):
             metric: float(self.coco_eval.stats[idx] * 100 if self.coco_eval.stats[idx] >= 0 else "nan")
             for idx, metric in enumerate(metrics)
         }
-        self._logger.info(f"Evaluation results for {self.iou_type}:\n" + create_small_table(results))
+        self._logger.info(
+            f"Evaluation results for {self.iou_type}:\n{create_small_table(results)}"
+        )
+
 
         if not np.isfinite(sum(results.values())):
             self._logger.info("Some metrics cannot be computed and is shown as NaN.")
@@ -181,9 +183,9 @@ class COCOEvaluator(Metric):
             headers=["category", "AP"] * (N_COLS // 2),
             numalign="left",
         )
-        self._logger.info(f"Per-category {self.iou_type} AP:\n" + table)
+        self._logger.info(f"Per-category {self.iou_type} AP:\n{table}")
 
-        results.update({"AP-" + name: ap for name, ap in results_per_category})
+        results |= {f"AP-{name}": ap for name, ap in results_per_category}
         return results
 
     def prepare(self, predictions, iou_type):
@@ -229,10 +231,7 @@ def merge(img_ids, eval_imgs):
     for p in all_img_ids:
         merged_img_ids.extend(p)
 
-    merged_eval_imgs = []
-    for p in all_eval_imgs:
-        merged_eval_imgs.append(p)
-
+    merged_eval_imgs = list(all_eval_imgs)
     merged_img_ids = np.array(merged_img_ids)
     merged_eval_imgs = np.concatenate(merged_eval_imgs, 2)
 
@@ -285,7 +284,7 @@ def evaluate(self):
     # loop through images, area range, max detection number
     catIds = p.catIds if p.useCats else [-1]
 
-    if p.iouType == "segm" or p.iouType == "bbox":
+    if p.iouType in ["segm", "bbox"]:
         computeIoU = self.computeIoU
     elif p.iouType == "keypoints":
         computeIoU = self.computeOks

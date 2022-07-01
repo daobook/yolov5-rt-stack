@@ -157,17 +157,10 @@ class YOLOv5(nn.Module):
 
         if self.training:
             # compute the losses
-            if torch.jit.is_scripting():
-                losses = outputs[0]
-            else:
-                losses = outputs
+            losses = outputs[0] if torch.jit.is_scripting() else outputs
         else:
             # Rescale coordinate
-            if torch.jit.is_scripting():
-                result = outputs[1]
-            else:
-                result = outputs
-
+            result = outputs[1] if torch.jit.is_scripting() else outputs
             if torchvision._is_tracing():
                 im_shape = _get_shape_onnx(samples.tensors)
             else:
@@ -175,13 +168,12 @@ class YOLOv5(nn.Module):
 
             detections = self.transform.postprocess(result, im_shape, original_image_sizes)
 
-        if torch.jit.is_scripting():
-            if not self._has_warned:
-                warnings.warn("YOLOv5 always returns a (Losses, Detections) tuple in scripting.")
-                self._has_warned = True
-            return losses, detections
-        else:
+        if not torch.jit.is_scripting():
             return self.eager_outputs(losses, detections)
+        if not self._has_warned:
+            warnings.warn("YOLOv5 always returns a (Losses, Detections) tuple in scripting.")
+            self._has_warned = True
+        return losses, detections
 
     @torch.jit.unused
     def eager_outputs(
@@ -189,10 +181,7 @@ class YOLOv5(nn.Module):
         losses: Dict[str, Tensor],
         detections: List[Dict[str, Tensor]],
     ) -> Tuple[Dict[str, Tensor], List[Dict[str, Tensor]]]:
-        if self.training:
-            return losses
-
-        return detections
+        return losses if self.training else detections
 
     @torch.no_grad()
     def predict(self, x: Any, image_loader: Optional[Callable] = None) -> List[Dict[str, Tensor]]:
@@ -282,11 +271,10 @@ class YOLOv5(nn.Module):
             fill_color (int): fill value for padding. Default: 114
         """
         model = YOLO.load_from_yolov5(checkpoint_path, **kwargs)
-        yolov5 = cls(
+        return cls(
             model=model,
             size=size,
             size_divisible=size_divisible,
             fixed_shape=fixed_shape,
             fill_color=fill_color,
         )
-        return yolov5

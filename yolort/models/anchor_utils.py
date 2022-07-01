@@ -60,7 +60,7 @@ class AnchorGenerator(nn.Module):
         return shifts
 
     def forward(self, feature_maps: List[Tensor]) -> Tuple[List[Tensor], List[Tensor]]:
-        grid_sizes = list([feature_map.shape[-2:] for feature_map in feature_maps])
+        grid_sizes = [feature_map.shape[-2:] for feature_map in feature_maps]
         dtype, device = feature_maps[0].dtype, feature_maps[0].device
         grids = self._generate_grids(grid_sizes, dtype=dtype, device=device)
         shifts = self._generate_shifts(grid_sizes, dtype=dtype, device=device)

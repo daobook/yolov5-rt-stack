@@ -108,7 +108,7 @@ class PathAggregationNetwork(nn.Module):
 
         if version == "r6.0":
             init_block = SPP(in_channels[-1], in_channels[-1], k=(5, 9, 13))
-        elif version in ["r3.1", "r4.0"]:
+        elif version in {"r3.1", "r4.0"}:
             init_block = block(in_channels[-1], in_channels[-1], n=depth_gain, shortcut=False)
         else:
             raise NotImplementedError(f"Version {version} is not implemented yet.")
@@ -169,15 +169,13 @@ class PathAggregationNetwork(nn.Module):
         This is equivalent to self.inner_blocks[idx](x),
         but torchscript doesn't support this yet
         """
-        num_blocks = len(self.inner_blocks)
         if idx < 0:
+            num_blocks = len(self.inner_blocks)
             idx += num_blocks
-        i = 0
         out = x
-        for module in self.inner_blocks:
+        for i, module in enumerate(self.inner_blocks):
             if i == idx:
                 out = module(x)
-            i += 1
         return out
 
     def get_result_from_layer_blocks(self, x: Tensor, idx: int) -> Tensor:
@@ -185,15 +183,13 @@ class PathAggregationNetwork(nn.Module):
         This is equivalent to self.layer_blocks[idx](x),
         but torchscript doesn't support this yet
         """
-        num_blocks = len(self.layer_blocks)
         if idx < 0:
+            num_blocks = len(self.layer_blocks)
             idx += num_blocks
-        i = 0
         out = x
-        for module in self.layer_blocks:
+        for i, module in enumerate(self.layer_blocks):
             if i == idx:
                 out = module(x)
-            i += 1
         return out
 
     def forward(self, x: Dict[str, Tensor]) -> List[Tensor]:
@@ -225,11 +221,8 @@ class PathAggregationNetwork(nn.Module):
 
         inners.insert(0, last_inner)
 
-        # Ascending the feature pyramid
-        results = []
         last_inner = self.get_result_from_layer_blocks(inners[0], 0)
-        results.append(last_inner)
-
+        results = [last_inner]
         for idx in range(num_features - 1):
             last_inner = self.get_result_from_layer_blocks(last_inner, 2 * idx + 1)
             last_inner = torch.cat([last_inner, inners[idx + 1]], dim=1)

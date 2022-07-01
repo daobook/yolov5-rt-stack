@@ -92,11 +92,12 @@ def darknet_pan_backbone(
             are ["r3.1", "r4.0", "r6.0"]. Default: "r6.0".
         use_p6 (bool): Whether to use P6 layers.
     """
-    assert version in [
+    assert version in {
         "r3.1",
         "r4.0",
         "r6.0",
-    ], "Currently only supports version 'r3.1', 'r4.0' and 'r6.0'."
+    }, "Currently only supports version 'r3.1', 'r4.0' and 'r6.0'."
+
 
     last_channel = 768 if use_p6 else 1024
     backbone = darknet.__dict__[backbone_name](

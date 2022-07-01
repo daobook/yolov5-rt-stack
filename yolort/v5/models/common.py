@@ -228,15 +228,20 @@ class Focus(nn.Module):
 
     def forward(self, x: Tensor) -> Tensor:
         y = focus_transform(x)
-        out = self.conv(y)
-
-        return out
+        return self.conv(y)
 
 
 def focus_transform(x: Tensor) -> Tensor:
     """x(b,c,w,h) -> y(b,4c,w/2,h/2)"""
-    y = torch.cat([x[..., ::2, ::2], x[..., 1::2, ::2], x[..., ::2, 1::2], x[..., 1::2, 1::2]], 1)
-    return y
+    return torch.cat(
+        [
+            x[..., ::2, ::2],
+            x[..., 1::2, ::2],
+            x[..., ::2, 1::2],
+            x[..., 1::2, 1::2],
+        ],
+        1,
+    )
 
 
 def space_to_depth(x: Tensor) -> Tensor:
@@ -244,8 +249,7 @@ def space_to_depth(x: Tensor) -> Tensor:
     N, C, H, W = x.size()
     x = x.reshape(N, C, H // 2, 2, W // 2, 2)
     x = x.permute(0, 5, 3, 1, 2, 4)
-    y = x.reshape(N, C * 4, H // 2, W // 2)
-    return y
+    return x.reshape(N, C * 4, H // 2, W // 2)
 
 
 class Concat(nn.Module):
@@ -257,10 +261,7 @@ class Concat(nn.Module):
     # torchscript does not yet support *args, so we overload method
     # allowing it to take either a List[Tensor] or single Tensor
     def forward(self, x: List[Tensor]) -> Tensor:
-        if isinstance(x, Tensor):
-            prev_features = [x]
-        else:
-            prev_features = x
+        prev_features = [x] if isinstance(x, Tensor) else x
         return torch.cat(prev_features, self.d)
 
 

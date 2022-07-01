@@ -105,12 +105,11 @@ class LoadImages:
             while not ret_val:
                 self.count += 1
                 self.cap.release()
-                if self.count == self.num_files:  # last video
+                if self.count == self.num_files:
                     raise StopIteration
-                else:
-                    path = self.files[self.count]
-                    self.new_video(path)
-                    ret_val, img_origin = self.cap.read()
+                path = self.files[self.count]
+                self.new_video(path)
+                ret_val, img_origin = self.cap.read()
 
             self.frame += 1
             source_bar = f"video {self.count + 1}/{self.num_files} ({self.frame}/{self.frames}) {path}: "

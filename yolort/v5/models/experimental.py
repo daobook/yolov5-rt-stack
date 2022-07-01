@@ -77,9 +77,6 @@ class Ensemble(nn.ModuleList):
         super().__init__()
 
     def forward(self, x, augment=False, profile=False, visualize=False):
-        y = []
-        for module in self:
-            y.append(module(x, augment, profile, visualize)[0])
-
+        y = [module(x, augment, profile, visualize)[0] for module in self]
         y = torch.cat(y, 1)  # nms ensemble
         return y, None  # inference, train output

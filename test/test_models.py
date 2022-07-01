@@ -45,8 +45,7 @@ def _check_jit_scriptable(nn_module, args, unwrapper=None, skip=False):
             buffer = io.BytesIO()
             torch.jit.save(m, buffer)
             buffer.seek(0)
-            imported = torch.jit.load(buffer)
-            return imported
+            return torch.jit.load(buffer)
 
         m_import = get_export_import_copy(m)
         with freeze_rng_state():
@@ -98,40 +97,33 @@ class TestModel:
     @staticmethod
     def _get_in_channels(width_multiple, use_p6):
         grow_widths = [256, 512, 768, 1024] if use_p6 else [256, 512, 1024]
-        in_channels = [int(gw * width_multiple) for gw in grow_widths]
-        return in_channels
+        return [int(gw * width_multiple) for gw in grow_widths]
 
     @staticmethod
     def _get_strides(use_p6: bool):
-        if use_p6:
-            strides = [8, 16, 32, 64]
-        else:
-            strides = [8, 16, 32]
-        return strides
+        return [8, 16, 32, 64] if use_p6 else [8, 16, 32]
 
     @staticmethod
     def _get_anchor_grids(use_p6: bool):
-        if use_p6:
-            anchor_grids = [
+        return (
+            [
                 [19, 27, 44, 40, 38, 94],
                 [96, 68, 86, 152, 180, 137],
                 [140, 301, 303, 264, 238, 542],
                 [436, 615, 739, 380, 925, 792],
             ]
-        else:
-            anchor_grids = [
+            if use_p6
+            else [
                 [10, 13, 16, 30, 33, 23],
                 [30, 61, 62, 45, 59, 119],
                 [116, 90, 156, 198, 373, 326],
             ]
-        return anchor_grids
+        )
 
     def _compute_anchors(self, height, width, use_p6: bool):
         strides = self._get_strides(use_p6)
         anchors_num = len(strides)
-        anchors_shape = []
-        for s in strides:
-            anchors_shape.append((height // s, width // s))
+        anchors_shape = [(height // s, width // s) for s in strides]
         return anchors_num, anchors_shape
 
     def _get_feature_shapes(self, height, width, width_multiple=0.5, use_p6=False):
@@ -147,8 +139,7 @@ class TestModel:
             width_multiple=width_multiple,
             use_p6=use_p6,
         )
-        feature_maps = [torch.rand(batch_size, *f_shape) for f_shape in feature_shapes]
-        return feature_maps
+        return [torch.rand(batch_size, *f_shape) for f_shape in feature_shapes]
 
     def _get_head_outputs(self, batch_size, height, width, width_multiple=0.5, use_p6=False):
         feature_shapes = self._get_feature_shapes(
@@ -160,9 +151,7 @@ class TestModel:
 
         num_outputs = self.num_outputs
         head_shapes = [(batch_size, 3, *f_shape[1:], num_outputs) for f_shape in feature_shapes]
-        head_outputs = [torch.rand(*h_shape) for h_shape in head_shapes]
-
-        return head_outputs
+        return [torch.rand(*h_shape) for h_shape in head_shapes]
 
     def _init_test_backbone_with_pan(
         self,
@@ -176,14 +165,13 @@ class TestModel:
         backbone_name = f"darknet_{model_size}_{version.replace('.', '_')}"
         backbone_arch = eval(f"darknet_{'tan' if use_tan else 'pan'}_backbone")
         assert backbone_arch in [darknet_pan_backbone, darknet_tan_backbone]
-        model = backbone_arch(
+        return backbone_arch(
             backbone_name,
             depth_multiple,
             width_multiple,
             version=version,
             use_p6=use_p6,
         )
-        return model
 
     @pytest.mark.parametrize(
         "depth_multiple, width_multiple, version, use_p6, use_tan",
@@ -226,8 +214,7 @@ class TestModel:
     def _init_test_anchor_generator(self, use_p6=False):
         strides = self._get_strides(use_p6)
         anchor_grids = self._get_anchor_grids(use_p6)
-        anchor_generator = AnchorGenerator(strides, anchor_grids)
-        return anchor_generator
+        return AnchorGenerator(strides, anchor_grids)
 
     @pytest.mark.parametrize(
         "width_multiple, use_p6",
@@ -256,8 +243,7 @@ class TestModel:
         num_anchors = len(strides)
         num_classes = self.num_classes
 
-        box_head = YOLOHead(in_channels, num_anchors, strides, num_classes)
-        return box_head
+        return YOLOHead(in_channels, num_anchors, strides, num_classes)
 
     def test_yolo_head(self):
         N, H, W = 4, 416, 352
@@ -277,8 +263,7 @@ class TestModel:
         score_thresh = 0.5
         nms_thresh = 0.45
         detections_per_img = 100
-        postprocessors = PostProcess(strides, score_thresh, nms_thresh, detections_per_img)
-        return postprocessors
+        return PostProcess(strides, score_thresh, nms_thresh, detections_per_img)
 
     @pytest.mark.parametrize("use_p6", [False, True])
     def test_postprocessors(self, use_p6):

@@ -62,9 +62,10 @@ class DarkNetV4(nn.Module):
     ) -> None:
         super().__init__()
 
-        assert version in ["r3.1", "r4.0"], (
+        assert version in {"r3.1", "r4.0"}, (
             "Currently the module version used in DarkNetV4 is r3.1 or r4.0",
         )
+
 
         if block is None:
             block = _block[version]
@@ -89,14 +90,23 @@ class DarkNetV4(nn.Module):
         for depth_gain, out_channel in zip(stages_repeats, stages_out_channels):
             depth_gain = max(round(depth_gain * depth_multiple), 1)
             out_channel = _make_divisible(out_channel * width_multiple, round_nearest)
-            layers.append(Conv(input_channel, out_channel, k=3, s=2, version=version))
-            layers.append(block(out_channel, out_channel, n=depth_gain))
+            layers.extend(
+                (
+                    Conv(input_channel, out_channel, k=3, s=2, version=version),
+                    block(out_channel, out_channel, n=depth_gain),
+                )
+            )
+
             input_channel = out_channel
 
         # building last CSP blocks
         last_channel = _make_divisible(last_channel * width_multiple, round_nearest)
-        layers.append(Conv(input_channel, last_channel, k=3, s=2, version=version))
-        layers.append(SPP(last_channel, last_channel, k=(5, 9, 13), version=version))
+        layers.extend(
+            (
+                Conv(input_channel, last_channel, k=3, s=2, version=version),
+                SPP(last_channel, last_channel, k=(5, 9, 13), version=version),
+            )
+        )
 
         self.features = nn.Sequential(*layers)
         self.avgpool = nn.AdaptiveAvgPool2d(1)
@@ -109,8 +119,8 @@ class DarkNetV4(nn.Module):
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
-                pass  # nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
-            elif isinstance(m, nn.BatchNorm2d):
+                continue
+            if isinstance(m, nn.BatchNorm2d):
                 m.eps = 1e-3
                 m.momentum = 0.03
             elif isinstance(m, (nn.Hardswish, nn.LeakyReLU, nn.ReLU, nn.ReLU6)):
@@ -146,9 +156,8 @@ def _darknet_v4_conf(arch: str, pretrained: bool, progress: bool, *args: Any, **
         model_url = model_urls[arch]
         if model_url is None:
             raise NotImplementedError(f"pretrained {arch} is not supported as of now")
-        else:
-            state_dict = load_state_dict_from_url(model_url, progress=progress)
-            model.load_state_dict(state_dict)
+        state_dict = load_state_dict_from_url(model_url, progress=progress)
+        model.load_state_dict(state_dict)
 
     return model
 

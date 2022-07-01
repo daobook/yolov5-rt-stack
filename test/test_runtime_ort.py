@@ -36,7 +36,7 @@ class TestONNXExporter:
         # validate the exported model with onnx runtime
         for test_inputs in inputs_list:
             with torch.no_grad():
-                if isinstance(test_inputs, Tensor) or isinstance(test_inputs, list):
+                if isinstance(test_inputs, (Tensor, list)):
                     test_inputs = (test_inputs,)
                 test_outputs = model(*test_inputs)
                 if isinstance(test_outputs, Tensor):
@@ -55,15 +55,13 @@ class TestONNXExporter:
         # Inference on ONNX Runtime
         ort_outs = y_runtime.predict(inputs)
 
-        for i in range(0, len(outputs)):
+        for i in range(len(outputs)):
             torch.testing.assert_allclose(outputs[i], ort_outs[i], rtol=1e-03, atol=1e-05)
 
     def get_image(self, img_name):
 
         img_path = Path(__file__).parent.resolve() / "assets" / img_name
-        image = read_image(str(img_path)) / 255
-
-        return image
+        return read_image(str(img_path)) / 255
 
     def get_test_images(self):
         return self.get_image("bus.jpg"), self.get_image("zidane.jpg")

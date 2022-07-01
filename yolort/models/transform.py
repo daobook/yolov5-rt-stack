@@ -176,7 +176,7 @@ class YOLOTransform(nn.Module):
         """
 
         device = images[0].device
-        images = [img for img in images]
+        images = list(images)
         if targets is not None:
             # make a copy of targets to avoid modifying it in-place
             # once torchscript supports dict comprehension
@@ -184,9 +184,7 @@ class YOLOTransform(nn.Module):
             # targets = [{k: v for k,v in t.items()} for t in targets]
             targets_copy: List[Dict[str, Tensor]] = []
             for t in targets:
-                data: Dict[str, Tensor] = {}
-                for k, v in t.items():
-                    data[k] = v.to(device=device)
+                data: Dict[str, Tensor] = {k: v.to(device=device) for k, v in t.items()}
                 targets_copy.append(data)
             targets = targets_copy
 
@@ -353,7 +351,7 @@ class YOLOTransform(nn.Module):
         return result
 
     def __repr__(self):
-        format_string = self.__class__.__name__ + "("
+        format_string = f"{self.__class__.__name__}("
         _indent = "\n    "
         format_string += f"{_indent}Resize(min_size={self.min_size}, max_size={self.max_size})"
         format_string += "\n)"

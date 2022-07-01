@@ -46,23 +46,18 @@ def load_from_ultralytics(checkpoint_path: str, version: str = "r6.0"):
     depth_multiple = checkpoint_yolov5.yaml["depth_multiple"]
     width_multiple = checkpoint_yolov5.yaml["width_multiple"]
 
-    use_p6 = False
-    if len(strides) == 4:
-        use_p6 = True
-
+    use_p6 = len(strides) == 4
     if use_p6:
         inner_block_maps = {"0": "11", "1": "12", "3": "15", "4": "16", "6": "19", "7": "20"}
         layer_block_maps = {"0": "23", "1": "24", "2": "26", "3": "27", "4": "29", "5": "30", "6": "32"}
         p6_block_maps = {"0": "9", "1": "10"}
         head_ind = 33
-        head_name = "m"
     else:
         inner_block_maps = {"0": "9", "1": "10", "3": "13", "4": "14"}
         layer_block_maps = {"0": "17", "1": "18", "2": "20", "3": "21", "4": "23"}
         p6_block_maps = None
         head_ind = 24
-        head_name = "m"
-
+    head_name = "m"
     convert_yolo_checkpoint = CheckpointConverter(
         depth_multiple,
         width_multiple,

@@ -252,5 +252,5 @@ def is_relevant_type(t):
     if kind in ("ListType", "OptionalType"):
         return is_relevant_type(t.getElementType())
     if kind == "TupleType":
-        return any([is_relevant_type(tt) for tt in t.elements()])
+        return any(is_relevant_type(tt) for tt in t.elements())
     return False

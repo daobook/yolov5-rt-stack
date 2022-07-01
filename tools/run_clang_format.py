@@ -113,8 +113,7 @@ class UnexpectedError(Exception):
 
 def run_clang_format_diff_wrapper(args, file):
     try:
-        ret = run_clang_format_diff(args, file)
-        return ret
+        return run_clang_format_diff(args, file)
     except DiffError:
         raise
     except Exception as e:
@@ -293,7 +292,7 @@ def main():
         colored_stdout = sys.stdout.isatty()
         colored_stderr = sys.stderr.isatty()
 
-    version_invocation = [args.clang_format_executable, str("--version")]
+    version_invocation = [args.clang_format_executable, "--version"]
     try:
         subprocess.check_call(version_invocation, stdout=DEVNULL)
     except subprocess.CalledProcessError as e:

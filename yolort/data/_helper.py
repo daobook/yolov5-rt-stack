@@ -24,7 +24,7 @@ def create_small_table(small_dict):
         str: the table as a string.
     """
     keys, values = tuple(zip(*small_dict.items()))
-    table = tabulate(
+    return tabulate(
         [values],
         headers=keys,
         tablefmt="pipe",
@@ -32,7 +32,6 @@ def create_small_table(small_dict):
         stralign="center",
         numalign="center",
     )
-    return table
 
 
 def get_coco_api_from_dataset(dataset):
@@ -65,8 +64,8 @@ def prepare_coco128(
         data_path.mkdir(parents=True, exist_ok=True)
 
     zip_path = data_path / "coco128.zip"
-    coco128_url = "https://github.com/zhiqwang/yolov5-rt-stack/releases/download/v0.3.0/coco128.zip"
     if not zip_path.is_file():
+        coco128_url = "https://github.com/zhiqwang/yolov5-rt-stack/releases/download/v0.3.0/coco128.zip"
         logger.info(f"Downloading coco128 datasets form {coco128_url}")
         torch.hub.download_url_to_file(coco128_url, zip_path, hash_prefix="a67d2887")
 
@@ -106,7 +105,7 @@ def get_dataloader(data_root: str, mode: str = "val", batch_size: int = 4):
     # We adopt the sequential sampler in order to repeat the experiment
     sampler = torch.utils.data.SequentialSampler(dataset)
 
-    loader = torch.utils.data.DataLoader(
+    return torch.utils.data.DataLoader(
         dataset,
         batch_size,
         sampler=sampler,
@@ -114,5 +113,3 @@ def get_dataloader(data_root: str, mode: str = "val", batch_size: int = 4):
         collate_fn=collate_fn,
         num_workers=0,
     )
-
-    return loader

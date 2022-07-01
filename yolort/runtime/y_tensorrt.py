@@ -200,9 +200,7 @@ class PredictorTRT:
 
         # Rescale coordinate
         im_shape = torch.tensor(samples.tensors.shape[-2:])
-        detections = self.transform.postprocess(results, im_shape, original_image_sizes)
-
-        return detections
+        return self.transform.postprocess(results, im_shape, original_image_sizes)
 
     def predict(self, x: Any, image_loader: Optional[Callable] = None) -> List[Dict[str, Tensor]]:
         """

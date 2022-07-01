@@ -221,7 +221,7 @@ class Visualizer:
         if font_size is None:
             font_size = max(self.line_width - 1, 1)  # font thickness
         w, h = cv2.getTextSize(text, 0, fontScale=self.line_width / 3, thickness=font_size)[0]
-        outside = pt1[1] - h - 3 >= 0  # text fits outside box
+        outside = pt1[1] - h >= 3
         pt2 = pt1[0] + w, pt1[1] - h - 3 if outside else pt1[1] + h + 3
         cv2.rectangle(self.output, pt1, pt2, color, -1, cv2.LINE_AA)  # filled
         cv2.putText(
@@ -240,10 +240,7 @@ class Visualizer:
         """
         Convert different format of boxes to an Nx4 array.
         """
-        if isinstance(boxes, Tensor):
-            return boxes.cpu().detach().numpy()
-        else:
-            return boxes
+        return boxes.cpu().detach().numpy() if isinstance(boxes, Tensor) else boxes
 
     def _create_text_labels(
         self,
@@ -274,10 +271,11 @@ class Visualizer:
         """
         Generate colors that match the labels.
         """
-        colors = None
-        if labels is not None:
-            colors = [self.assigned_colors(label, bgr=self.is_bgr) for label in labels]
-        return colors
+        return (
+            [self.assigned_colors(label, bgr=self.is_bgr) for label in labels]
+            if labels is not None
+            else None
+        )
 
     def _change_color_brightness(
         self,

@@ -133,10 +133,7 @@ class YOLO(nn.Module):
         losses: Dict[str, Tensor],
         detections: List[Dict[str, Tensor]],
     ) -> Tuple[Dict[str, Tensor], List[Dict[str, Tensor]]]:
-        if self.training:
-            return losses
-
-        return detections
+        return losses if self.training else detections
 
     def forward(
         self,
@@ -174,13 +171,12 @@ class YOLO(nn.Module):
             # compute the detections
             detections = self.post_process(head_outputs, grids, shifts)
 
-        if torch.jit.is_scripting():
-            if not self._has_warned:
-                warnings.warn("YOLO always returns a (Losses, Detections) tuple in scripting.")
-                self._has_warned = True
-            return losses, detections
-        else:
+        if not torch.jit.is_scripting():
             return self.eager_outputs(losses, detections)
+        if not self._has_warned:
+            warnings.warn("YOLO always returns a (Losses, Detections) tuple in scripting.")
+            self._has_warned = True
+        return losses, detections
 
     @classmethod
     def load_from_yolov5(
@@ -847,7 +843,6 @@ def yolov5_darknet_tan_s_r40(
         progress (bool): If True, displays a progress bar of the download to stderr
     """
     backbone_name = "darknet_s_r4_0"
-    weights_name = "yolov5_darknet_tan_s_r40_coco"
     depth_multiple = 0.33
     width_multiple = 0.5
     version = "r4.0"
@@ -856,6 +851,7 @@ def yolov5_darknet_tan_s_r40(
 
     model = YOLO(backbone, num_classes, **kwargs)
     if pretrained:
+        weights_name = "yolov5_darknet_tan_s_r40_coco"
         if model_urls.get(weights_name, None) is None:
             raise ValueError(f"No checkpoint is available for model {weights_name}")
         state_dict = load_state_dict_from_url(model_urls[weights_name], progress=progress)

@@ -158,10 +158,7 @@ class ONNXBuilder:
         if self._batch_size == 1:
             return ["image"]
 
-        input_names = []
-        for i in range(self._batch_size):
-            input_names.append(f"image{i + 1}")
-        return input_names
+        return [f"image{i + 1}" for i in range(self._batch_size)]
 
     def _set_output_names(self):
         if self._skip_preprocess:

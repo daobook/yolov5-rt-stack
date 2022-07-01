@@ -9,7 +9,7 @@ def dict_to_tuple(out_dict: Dict[str, Tensor]) -> Tuple:
     """
     Convert the model output dictionary to tuple format.
     """
-    if "masks" in out_dict.keys():
+    if "masks" in out_dict:
         return (
             out_dict["boxes"],
             out_dict["scores"],

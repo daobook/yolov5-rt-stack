@@ -103,11 +103,7 @@ class ComputeLoss:
         self.sort_obj_iou = False
         device = next(model.parameters()).device  # get model device
         # hyperparameters
-        if hyperparameters is not None:
-            h = hyperparameters
-        else:
-            h = model.hyp
-
+        h = hyperparameters if hyperparameters is not None else model.hyp
         # Define criteria
         BCEcls = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([h["cls_pw"]], device=device))
         BCEobj = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([h["obj_pw"]], device=device))
@@ -153,9 +149,7 @@ class ComputeLoss:
             # target obj
             tobj = torch.zeros_like(pi[..., 0], device=device)
 
-            # number of targets
-            n = b.shape[0]
-            if n:
+            if n := b.shape[0]:
                 # prediction subset corresponding to targets
                 ps = pi[b, a, gj, gi]
 

@@ -143,7 +143,7 @@ class Annotator:
             if label:
                 tf = max(self.lw - 1, 1)  # font thickness
                 w, h = cv2.getTextSize(label, 0, fontScale=self.lw / 3, thickness=tf)[0]
-                outside = p1[1] - h - 3 >= 0  # label fits outside box
+                outside = p1[1] - h >= 3
                 p2 = p1[0] + w, p1[1] - h - 3 if outside else p1[1] + h + 3
                 cv2.rectangle(self.im, p1, p2, color, -1, cv2.LINE_AA)  # filled
                 cv2.putText(
@@ -226,8 +226,11 @@ def output_to_target(output):
     # Convert model output to target format [batch_id, class_id, x, y, w, h, conf]
     targets = []
     for i, o in enumerate(output):
-        for *box, conf, cls in o.cpu().numpy():
-            targets.append([i, cls, *list(*xyxy2xywh(np.array(box)[None])), conf])
+        targets.extend(
+            [i, cls, *list(*xyxy2xywh(np.array(box)[None])), conf]
+            for *box, conf, cls in o.cpu().numpy()
+        )
+
     return np.array(targets)
 
 
@@ -483,7 +486,7 @@ def plot_results(file="path/to/results.csv", dir=""):
     ax = ax.ravel()
     files = list(save_dir.glob("results*.csv"))
     assert len(files), f"No results.csv files found in {save_dir.resolve()}, nothing to plot."
-    for fi, f in enumerate(files):
+    for f in files:
         try:
             data = pd.read_csv(f)
             s = [x.strip() for x in data.columns]
