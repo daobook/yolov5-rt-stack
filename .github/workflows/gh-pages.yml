@@ -2,9 +2,9 @@ name: Build & deploy docs
 
 on:
   push:
-    branches: [ main ]
+    branches: [ xin ]
   pull_request:
-    branches: [ main ]
+    branches: [ xin ]
 
 jobs:
   deploy:
