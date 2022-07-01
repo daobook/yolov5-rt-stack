@@ -1,8 +1,10 @@
 ##################################
-Welcome to yolort's documentation!
+yolort 文档
 ##################################
 
-**What is yolort?**
+**yolort 是什么？**
+
+``yolort`` 专注于使目标检测任务的训练和推理更加无缝地结合在一起。
 
 ``yolort`` focus on making the training and inference of the object detection task
 integrate more seamlessly together. ``yolort`` now adopts the same model
