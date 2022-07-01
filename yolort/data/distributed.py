@@ -33,9 +33,11 @@ def all_gather(data):
     # receiving Tensor from all ranks
     # we pad the tensor because torch all_gather does not support
     # gathering tensors of different shapes
-    tensor_list = []
-    for _ in size_list:
-        tensor_list.append(torch.empty((max_size,), dtype=torch.uint8, device="cuda"))
+    tensor_list = [
+        torch.empty((max_size,), dtype=torch.uint8, device="cuda")
+        for _ in size_list
+    ]
+
     if local_size != max_size:
         padding = torch.empty(size=(max_size - local_size,), dtype=torch.uint8, device="cuda")
         tensor = torch.cat((tensor, padding), dim=0)
@@ -58,6 +60,8 @@ def is_dist_avail_and_initialized():
 
 
 def get_world_size():
-    if not is_dist_avail_and_initialized():
-        return 1
-    return torch.distributed.get_world_size()
+    return (
+        torch.distributed.get_world_size()
+        if is_dist_avail_and_initialized()
+        else 1
+    )

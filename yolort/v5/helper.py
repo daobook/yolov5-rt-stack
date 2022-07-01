@@ -30,10 +30,11 @@ def add_yolov5_context():
 
 
 def get_yolov5_size(depth_multiple, width_multiple):
-    if depth_multiple == 0.33 and width_multiple == 0.25:
-        return "n"
-    if depth_multiple == 0.33 and width_multiple == 0.5:
-        return "s"
+    if depth_multiple == 0.33:
+        if width_multiple == 0.25:
+            return "n"
+        if width_multiple == 0.5:
+            return "s"
     if depth_multiple == 0.67 and width_multiple == 0.75:
         return "m"
     if depth_multiple == 1.0 and width_multiple == 1.0:
@@ -72,10 +73,11 @@ def load_yolov5_model(checkpoint_path: str, fuse: bool = False):
 
         # Compatibility updates
         for sub_module in model.modules():
-            if isinstance(sub_module, Detect):
-                if not isinstance(sub_module.anchor_grid, list):  # new Detect Layer compatibility
-                    delattr(sub_module, "anchor_grid")
-                    setattr(sub_module, "anchor_grid", [torch.zeros(1)] * sub_module.nl)
+            if isinstance(sub_module, Detect) and not isinstance(
+                sub_module.anchor_grid, list
+            ):
+                delattr(sub_module, "anchor_grid")
+                setattr(sub_module, "anchor_grid", [torch.zeros(1)] * sub_module.nl)
             if isinstance(sub_module, nn.Upsample) and not hasattr(sub_module, "recompute_scale_factor"):
                 sub_module.recompute_scale_factor = None  # torch 1.11.0 compatibility
 

@@ -306,9 +306,8 @@ class RandomPhotometricDistort(nn.Module):
             image = self._brightness(image)
 
         contrast_before = r[1] < 0.5
-        if contrast_before:
-            if r[2] < self.p:
-                image = self._contrast(image)
+        if contrast_before and r[2] < self.p:
+            image = self._contrast(image)
 
         if r[3] < self.p:
             image = self._saturation(image)
@@ -316,9 +315,8 @@ class RandomPhotometricDistort(nn.Module):
         if r[4] < self.p:
             image = self._hue(image)
 
-        if not contrast_before:
-            if r[5] < self.p:
-                image = self._contrast(image)
+        if not contrast_before and r[5] < self.p:
+            image = self._contrast(image)
 
         if r[6] < self.p:
             channels = get_image_num_channels(image)

@@ -168,7 +168,7 @@ def evaluate(model, data_loader, coco_evaluator, device, print_freq, use_wandb, 
     )
     header = "Test:"
     for images, targets in metric_logger.log_every(data_loader, print_freq, header):
-        images = list(image.to(device) for image in images)
+        images = [image.to(device) for image in images]
 
         if torch.cuda.is_available():
             torch.cuda.synchronize()
@@ -185,8 +185,7 @@ def evaluate(model, data_loader, coco_evaluator, device, print_freq, use_wandb, 
 
     # gather the stats from all processes
     metric_logger.synchronize_between_processes()
-    results = coco_evaluator.compute()
-    return results
+    return coco_evaluator.compute()
 
 
 def cli_main():

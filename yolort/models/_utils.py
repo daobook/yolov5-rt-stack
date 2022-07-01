@@ -35,9 +35,7 @@ def encode_single(reference_boxes: Tensor, anchors: Tensor) -> Tensor:
 
     pred_xy = reference_boxes[:, :2] * 2.0 - 0.5
     pred_wh = (reference_boxes[:, 2:4] * 2) ** 2 * anchors
-    pred_boxes = torch.cat((pred_xy, pred_wh), 1)
-
-    return pred_boxes
+    return torch.cat((pred_xy, pred_wh), 1)
 
 
 def decode_single(

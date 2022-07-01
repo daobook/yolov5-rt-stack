@@ -30,8 +30,7 @@ class FakeYOLO(nn.Module):
 
     def forward(self, x):
         x = self.model(x)
-        out = self.post_process(x)
-        return out
+        return self.post_process(x)
 
 
 class FakePostProcess(nn.Module):
@@ -83,8 +82,7 @@ class FakePostProcess(nn.Module):
         i = i.unsqueeze(1)
         i = i.float()
         classes_keep = classes_keep.float()
-        out = torch.concat([i, boxes_keep, classes_keep, scores_keep], 1)
-        return out
+        return torch.concat([i, boxes_keep, classes_keep, scores_keep], 1)
 
 
 class NonMaxSupressionOp(torch.autograd.Function):

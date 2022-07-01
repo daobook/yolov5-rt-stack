@@ -47,8 +47,10 @@ def set_logging(name=None, verbose=True):
     # Sets level and returns logger
     rank = int(os.getenv("RANK", -1))  # rank in world for Multi-GPU trainings
     logging.basicConfig(
-        format="%(message)s", level=logging.INFO if (verbose and rank in (-1, 0)) else logging.WARNING
+        format="%(message)s",
+        level=logging.INFO if verbose and rank in {-1, 0} else logging.WARNING,
     )
+
     return logging.getLogger(name)
 
 
@@ -130,7 +132,9 @@ def intersect_dicts(dict1, dict2, exclude=()):
     return {
         k: v
         for k, v in dict1.items()
-        if k in dict2 and not any(x in k for x in exclude) and v.shape == dict2[k].shape
+        if k in dict2
+        and all(x not in k for x in exclude)
+        and v.shape == dict2[k].shape
     }
 
 
@@ -145,8 +149,7 @@ def user_config_dir(dir="Ultralytics", env_var="YOLOV5_CONFIG_DIR"):
     Return path of user configuration directory. Prefer environment
     variable if exists. Make dir if required.
     """
-    env = os.getenv(env_var)
-    if env:
+    if env := os.getenv(env_var):
         path = Path(env)  # use environment variable
     else:
         cfg = {
@@ -167,17 +170,16 @@ def is_writeable(dir, test=False):
     Return True if directory has write permissions, test opening a file
     with write permissions if test=True
     """
-    if test:  # method 1
-        file = Path(dir) / "tmp.txt"
-        try:
-            with open(file, "w"):  # open file with write permissions
-                pass
-            file.unlink()  # remove file
-            return True
-        except OSError:
-            return False
-    else:  # method 2
+    if not test:
         return os.access(dir, os.R_OK)  # possible issues on Windows
+    file = Path(dir) / "tmp.txt"
+    try:
+        with open(file, "w"):  # open file with write permissions
+            pass
+        file.unlink()  # remove file
+        return True
+    except OSError:
+        return False
 
 
 def is_pip():
@@ -280,7 +282,7 @@ def check_file(file, suffix=""):
     check_suffix(file, suffix)  # optional
     file = str(file)  # convert to str()
 
-    if Path(file).is_file() or file == "":
+    if Path(file).is_file() or not file:
         # return the file if the file exists
         return file
 
@@ -310,9 +312,7 @@ def check_file(file, suffix=""):
 def url2file(url):
     # Convert URL to filename, i.e. https://url.com/file.txt?auth -> file.txt
     url = str(Path(url)).replace(":/", "://")  # Pathlib turns :// -> :/
-    # '%2F' to '/', split https://url.com/file.txt?auth
-    file = Path(urllib.parse.unquote(url)).name.split("?")[0]
-    return file
+    return Path(urllib.parse.unquote(url)).name.split("?")[0]
 
 
 def make_divisible(x, divisor):
@@ -383,9 +383,8 @@ def labels_to_class_weights(labels, nc=80):
 def labels_to_image_weights(labels, nc=80, class_weights=np.ones(80)):
     # Produces image weights based on class_weights and image contents
     class_counts = np.array([np.bincount(x[:, 0].astype(np.int), minlength=nc) for x in labels])
-    image_weights = (class_weights.reshape(1, nc) * class_counts).sum(1)
     # index = random.choices(range(n), weights=image_weights, k=1)  # weight image sample
-    return image_weights
+    return (class_weights.reshape(1, nc) * class_counts).sum(1)
 
 
 def xyxy2xywh(x):
@@ -707,7 +706,7 @@ def apply_classifier(x, model, img, im0):
             # Classes
             pred_cls1 = d[:, 5].long()
             ims = []
-            for j, a in enumerate(d):  # per item
+            for a in d:
                 cutout = im0[i][int(a[1]) : int(a[3]), int(a[0]) : int(a[2])]
                 im = cv2.resize(cutout, (224, 224))  # BGR
                 # cv2.imwrite('example%i.jpg' % j, cutout)

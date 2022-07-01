@@ -53,10 +53,7 @@ class YOLOTRTInference(nn.Module):
         Args:
             inputs (Tensor): batched images, of shape [batch_size x 3 x H x W]
         """
-        # Compute the detections
-        outputs = self.model(inputs)
-
-        return outputs
+        return self.model(inputs)
 
     @torch.no_grad()
     def to_onnx(

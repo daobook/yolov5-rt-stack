@@ -99,7 +99,7 @@ class DefaultTask(LightningModule):
         The test step.
         """
         images, targets = batch
-        images = list(image.to(next(self.parameters()).device) for image in images)
+        images = [image.to(next(self.parameters()).device) for image in images]
         preds = self.model(images)
         results = self.evaluator(preds, targets)
         # log step metric

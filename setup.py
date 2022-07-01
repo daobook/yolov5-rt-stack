@@ -7,6 +7,7 @@ https://github.com/pypa/sampleproject
 Adapted from TorchVision, see:
 https://github.com/pytorch/vision/blob/master/setup.py
 """
+
 import os
 import subprocess
 from pathlib import Path
@@ -27,7 +28,7 @@ except Exception:
 if os.getenv("BUILD_VERSION"):
     version = os.getenv("BUILD_VERSION")
 elif sha != "Unknown":
-    version += "+" + sha[:7]
+    version += f"+{sha[:7]}"
 
 
 def write_version_file():

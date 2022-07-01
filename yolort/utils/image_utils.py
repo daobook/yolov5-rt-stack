@@ -105,8 +105,7 @@ def get_image_from_url(url: str, flags: int = 1) -> np.ndarray:
     data = requests.get(url)
     buffer = BytesIO(data.content)
     bytes_as_np_array = np.frombuffer(buffer.read(), dtype=np.uint8)
-    image = cv2.imdecode(bytes_as_np_array, flags)
-    return image
+    return cv2.imdecode(bytes_as_np_array, flags)
 
 
 @requires_module("cv2")
@@ -129,8 +128,7 @@ def read_image_to_tensor(image: np.ndarray, is_half: bool = False) -> Tensor:
 def load_names(category_path):
     names = []
     with open(category_path, "r") as f:
-        for line in f:
-            names.append(line.strip())
+        names.extend(line.strip() for line in f)
     return names
 
 
@@ -140,7 +138,7 @@ def overlay_boxes(detections, path, time_consume, args):
 
     img = cv2.imread(path) if args.save_img else None
 
-    for i, pred in enumerate(detections):  # detections per image
+    for pred in detections:
         det_logs = ""
         save_path = Path(args.output_dir).joinpath(Path(path).name)
         txt_path = Path(args.output_dir).joinpath(Path(path).stem)
@@ -353,7 +351,7 @@ def overlay_bbox(image, bboxes_list, color=None, thickness=2, font_scale=0.3, wi
         if with_mask:
             image = cv2.addWeighted(image, 1.0, mask, 0.6, 0)
 
-        if len(bbox) == 5 or len(bbox) == 6:
+        if len(bbox) in {5, 6}:
             cv2.putText(
                 image,
                 txt,
@@ -383,8 +381,7 @@ def merge_images_with_boundary(images_list, row_col_num=(1, -1)):
     if not isinstance(images_list, list):
         images_list = [images_list]
 
-    images_merged = merge_images(images_list, row_col_num)
-    return images_merged
+    return merge_images(images_list, row_col_num)
 
 
 @requires_module("cv2")
@@ -408,9 +405,9 @@ def merge_images(images_list, row_col_num):
         cv2.rectangle(image, (0, 0), (image.shape[1], image.shape[0]), (255, 0, 255))
 
     if row_col_num[1] < 0 or num_images < row:
-        images_merged = np.hstack(images_list)
+        return np.hstack(images_list)
     elif row_col_num[0] < 0 or num_images < col:
-        images_merged = np.vstack(images_list)
+        return np.vstack(images_list)
     else:
         assert row * col >= num_images, "Images overboundary, not enough windows to display all images!"
 
@@ -423,6 +420,4 @@ def merge_images(images_list, row_col_num):
             merge_col = np.hstack(images_list[start:end])
             merge_imgs_col.append(merge_col)
 
-        images_merged = np.vstack(merge_imgs_col)
-
-    return images_merged
+        return np.vstack(merge_imgs_col)

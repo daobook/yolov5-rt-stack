@@ -51,27 +51,26 @@ def ap_per_class(tp, conf, pred_cls, target_cls, plot=False, save_dir=".", names
 
         if n_p == 0 or n_l == 0:
             continue
-        else:
-            # Accumulate FPs and TPs
-            fpc = (1 - tp[i]).cumsum(0)
-            tpc = tp[i].cumsum(0)
+        # Accumulate FPs and TPs
+        fpc = (1 - tp[i]).cumsum(0)
+        tpc = tp[i].cumsum(0)
 
-            # Recall
-            recall = tpc / (n_l + 1e-16)  # recall curve
-            # negative x, xp because xp decreases
-            r[ci] = np.interp(-px, -conf[i], recall[:, 0], left=0)
+        # Recall
+        recall = tpc / (n_l + 1e-16)  # recall curve
+        # negative x, xp because xp decreases
+        r[ci] = np.interp(-px, -conf[i], recall[:, 0], left=0)
 
-            # Precision
-            # precision curve
-            precision = tpc / (tpc + fpc)
-            # p at pr_score
-            p[ci] = np.interp(-px, -conf[i], precision[:, 0], left=1)
+        # Precision
+        # precision curve
+        precision = tpc / (tpc + fpc)
+        # p at pr_score
+        p[ci] = np.interp(-px, -conf[i], precision[:, 0], left=1)
 
-            # AP from recall-precision curve
-            for j in range(tp.shape[1]):
-                ap[ci, j], mpre, mrec = compute_ap(recall[:, j], precision[:, j])
-                if plot and j == 0:
-                    py.append(np.interp(px, mrec, mpre))  # precision at mAP@0.5
+        # AP from recall-precision curve
+        for j in range(tp.shape[1]):
+            ap[ci, j], mpre, mrec = compute_ap(recall[:, j], precision[:, j])
+            if plot and j == 0:
+                py.append(np.interp(px, mrec, mpre))  # precision at mAP@0.5
 
     # Compute F1 (harmonic mean of precision and recall)
     f1 = 2 * p * r / (p + r + 1e-16)
@@ -238,38 +237,35 @@ def bbox_iou(box1, box2, x1y1x2y2=True, GIoU=False, DIoU=False, CIoU=False, eps=
     union = w1 * h1 + w2 * h2 - inter + eps
 
     iou = inter / union
-    if GIoU or DIoU or CIoU:
-        # convex (smallest enclosing box) width
-        cw = torch.max(b1_x2, b2_x2) - torch.min(b1_x1, b2_x1)
-        # convex height
-        ch = torch.max(b1_y2, b2_y2) - torch.min(b1_y1, b2_y1)
-        # Distance or Complete IoU https://arxiv.org/abs/1911.08287v1
-        if CIoU or DIoU:
-            # convex diagonal squared
-            c2 = cw**2 + ch**2 + eps
-            rho2 = (
-                (b2_x1 + b2_x2 - b1_x1 - b1_x2) ** 2
-                +
-                # center distance squared
-                (b2_y1 + b2_y2 - b1_y1 - b1_y2) ** 2
-            ) / 4
-            if DIoU:
-                # DIoU
-                return iou - rho2 / c2
-                # https://github.com/Zzh-tju/DIoU-SSD-pytorch/blob/master/utils/box/box_utils.py#L47
-            elif CIoU:
-                v = (4 / math.pi**2) * torch.pow(torch.atan(w2 / h2) - torch.atan(w1 / h1), 2)
-                with torch.no_grad():
-                    alpha = v / (v - iou + (1 + eps))
-                return iou - (rho2 / c2 + v * alpha)  # CIoU
-        else:  # GIoU https://arxiv.org/pdf/1902.09630.pdf
-            # convex area
-            c_area = cw * ch + eps
-            # GIoU
-            return iou - (c_area - union) / c_area
-    else:
+    if not GIoU and not DIoU and not CIoU:
         # IoU
         return iou
+    # convex (smallest enclosing box) width
+    cw = torch.max(b1_x2, b2_x2) - torch.min(b1_x1, b2_x1)
+    # convex height
+    ch = torch.max(b1_y2, b2_y2) - torch.min(b1_y1, b2_y1)
+        # Distance or Complete IoU https://arxiv.org/abs/1911.08287v1
+    if CIoU or DIoU:
+        # convex diagonal squared
+        c2 = cw**2 + ch**2 + eps
+        rho2 = (
+            (b2_x1 + b2_x2 - b1_x1 - b1_x2) ** 2
+            +
+            # center distance squared
+            (b2_y1 + b2_y2 - b1_y1 - b1_y2) ** 2
+        ) / 4
+        if DIoU:
+            # DIoU
+            return iou - rho2 / c2
+        v = (4 / math.pi**2) * torch.pow(torch.atan(w2 / h2) - torch.atan(w1 / h1), 2)
+        with torch.no_grad():
+            alpha = v / (v - iou + (1 + eps))
+        return iou - (rho2 / c2 + v * alpha)  # CIoU
+    else:  # GIoU https://arxiv.org/pdf/1902.09630.pdf
+        # convex area
+        c_area = cw * ch + eps
+        # GIoU
+        return iou - (c_area - union) / c_area
 
 
 def box_iou(box1, box2):

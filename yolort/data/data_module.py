@@ -54,14 +54,12 @@ class DetectionDataModule(LightningDataModule):
             drop_last=True,
         )
 
-        loader = torch.utils.data.DataLoader(
+        return torch.utils.data.DataLoader(
             self._train_dataset,
             batch_sampler=batch_sampler,
             collate_fn=collate_fn,
             num_workers=self.num_workers,
         )
-
-        return loader
 
     def val_dataloader(self) -> None:
         """
@@ -73,7 +71,7 @@ class DetectionDataModule(LightningDataModule):
         # Creating data loaders
         sampler = torch.utils.data.SequentialSampler(self._val_dataset)
 
-        loader = torch.utils.data.DataLoader(
+        return torch.utils.data.DataLoader(
             self._val_dataset,
             self.batch_size,
             sampler=sampler,
@@ -81,8 +79,6 @@ class DetectionDataModule(LightningDataModule):
             collate_fn=collate_fn,
             num_workers=self.num_workers,
         )
-
-        return loader
 
 
 class COCODetectionDataModule(DetectionDataModule):

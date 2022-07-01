@@ -8,8 +8,7 @@ class TestAnchorGenerator:
 
     def get_features(self, images):
         s0, s1 = images.shape[-2:]
-        features = [torch.rand(2, 8, s0 // 5, s1 // 5)]
-        return features
+        return [torch.rand(2, 8, s0 // 5, s1 // 5)]
 
     def test_anchor_generator(self):
         images = torch.rand(2, 3, 10, 10)
