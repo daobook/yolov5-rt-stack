@@ -1,36 +1,35 @@
-Install yolort
+安装 yolort
 ============
 
 .. _required:
 
 **Required**
 
-Above all, follow the `official instructions <https://pytorch.org/get-started/locally/>`_ to
-install PyTorch 1.8.0+ and torchvision 0.9.0+.
+首先，按照  `官方说明安装 <https://pytorch.org/get-started/locally/>`_ PyTorch 1.8.0+ 和 torchvision 0.9.0+。
 
-To install yolort, you may either use the repository
+要安装 ``yolort``，您可以使用存储库
 
    https://github.com/zhiqwang/yolov5-rt-stack/
 
-and ``setup.py`` from there or use
+还有 ``setup.py`` 或者用
 
 ::
 
    pip install -U yolort
 
-to get the latest release and
+获取最新版本并
 
 ::
 
    pip install 'git+https://github.com/zhiqwang/yolov5-rt-stack.git'
 
-to install the development version.
+安装开发版本。
 
 .. _optional:
 
 **Optional**
 
-Install pycocotools (for evaluation on COCO):
+安装 pycocotools （用于评估 COCO）：
 
 ::
 
