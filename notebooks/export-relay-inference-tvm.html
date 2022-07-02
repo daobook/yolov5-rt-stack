@@ -47,7 +47,7 @@
   
   
   
-    <title>Deploying yolort on TVM &#8212; yolort  documentation</title>
+    <title>在 TVM 上部署 yolort &#8212; yolort  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -99,7 +99,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">YOLOv5 Runtime Stack</span>
-          <span class="md-header-nav__topic"> Deploying yolort on TVM </span>
+          <span class="md-header-nav__topic"> 在 TVM 上部署 yolort </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -206,35 +206,35 @@
     <li class="md-nav__item">
     
     
-      <a href="inference-pytorch-export-libtorch.html" class="md-nav__link">Intuition for yolort</a>
+      <a href="inference-pytorch-export-libtorch.html" class="md-nav__link">yolort 直觉</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="comparison-between-yolort-vs-yolov5.html" class="md-nav__link">What is the difference between yolort and yolov5</a>
+      <a href="comparison-between-yolort-vs-yolov5.html" class="md-nav__link">yolort 和 yolov5 的差异</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">How to align with ultralytics yolov5</a>
+      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">如何与 ultralytics yolov5 对齐</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="anchor-label-assignment-visualization.html" class="md-nav__link">Visualize the anchor-target assignment</a>
+      <a href="anchor-label-assignment-visualization.html" class="md-nav__link">可视化 anchor-target 赋值</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="model-graph-visualization.html" class="md-nav__link">Visualize model graph</a>
+      <a href="model-graph-visualization.html" class="md-nav__link">可视化模型 graph</a>
       
     
     </li>
@@ -261,29 +261,29 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Deploying yolort on TVM </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> 在 TVM 上部署 yolort </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">Deploying yolort on TVM</a>
+      <a href="#" class="md-nav__link md-nav__link--active">在 TVM 上部署 yolort</a>
       
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#notebooks-export-relay-inference-tvm--page-root" class="md-nav__link">Deploying yolort on TVM</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#notebooks-export-relay-inference-tvm--page-root" class="md-nav__link">在 TVM 上部署 yolort</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Load-pre-trained-yolov5n-from-yolort-and-do-tracing" class="md-nav__link">Load pre-trained <code class="docutils literal notranslate"><span class="pre">yolov5n</span></code> from yolort and do tracing</a>
+        <li class="md-nav__item"><a href="#加载预训练的-yolov5n-模型并追踪" class="md-nav__link">加载预训练的 <code class="docutils literal notranslate"><span class="pre">yolov5n</span></code> 模型并追踪</a>
         </li>
-        <li class="md-nav__item"><a href="#Download-a-test-image-and-pre-process" class="md-nav__link">Download a test image and pre-process</a>
+        <li class="md-nav__item"><a href="#下载测试图片并预处理" class="md-nav__link">下载测试图片并预处理</a>
         </li>
-        <li class="md-nav__item"><a href="#Import-the-graph-to-Relay" class="md-nav__link">Import the graph to Relay</a>
+        <li class="md-nav__item"><a href="#导入-graph-到-Relay" class="md-nav__link">导入 graph 到 Relay</a>
         </li>
-        <li class="md-nav__item"><a href="#Compile-with-Relay-VM" class="md-nav__link">Compile with Relay VM</a>
+        <li class="md-nav__item"><a href="#使用-Relay-VM-编译" class="md-nav__link">使用 Relay VM 编译</a>
         </li>
-        <li class="md-nav__item"><a href="#Inference-with-Relay-VM" class="md-nav__link">Inference with Relay VM</a>
+        <li class="md-nav__item"><a href="#使用-Relay-VM-推理" class="md-nav__link">使用 Relay VM 推理</a>
         </li>
-        <li class="md-nav__item"><a href="#Get-boxes-with-score-larger-than-0.6" class="md-nav__link">Get boxes with score larger than 0.6</a>
+        <li class="md-nav__item"><a href="#获取得分大于-0.6-的-box" class="md-nav__link">获取得分大于 0.6 的 box</a>
         </li>
-        <li class="md-nav__item"><a href="#Verify-the-Inference-Output-on-TVM-backend" class="md-nav__link">Verify the Inference Output on TVM backend</a>
+        <li class="md-nav__item"><a href="#验证-TVM-后端的推理输出" class="md-nav__link">验证 TVM 后端的推理输出</a>
         </li></ul>
             </nav>
         </li>
@@ -339,21 +339,21 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#notebooks-export-relay-inference-tvm--page-root" class="md-nav__link">Deploying yolort on TVM</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#notebooks-export-relay-inference-tvm--page-root" class="md-nav__link">在 TVM 上部署 yolort</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Load-pre-trained-yolov5n-from-yolort-and-do-tracing" class="md-nav__link">Load pre-trained <code class="docutils literal notranslate"><span class="pre">yolov5n</span></code> from yolort and do tracing</a>
+        <li class="md-nav__item"><a href="#加载预训练的-yolov5n-模型并追踪" class="md-nav__link">加载预训练的 <code class="docutils literal notranslate"><span class="pre">yolov5n</span></code> 模型并追踪</a>
         </li>
-        <li class="md-nav__item"><a href="#Download-a-test-image-and-pre-process" class="md-nav__link">Download a test image and pre-process</a>
+        <li class="md-nav__item"><a href="#下载测试图片并预处理" class="md-nav__link">下载测试图片并预处理</a>
         </li>
-        <li class="md-nav__item"><a href="#Import-the-graph-to-Relay" class="md-nav__link">Import the graph to Relay</a>
+        <li class="md-nav__item"><a href="#导入-graph-到-Relay" class="md-nav__link">导入 graph 到 Relay</a>
         </li>
-        <li class="md-nav__item"><a href="#Compile-with-Relay-VM" class="md-nav__link">Compile with Relay VM</a>
+        <li class="md-nav__item"><a href="#使用-Relay-VM-编译" class="md-nav__link">使用 Relay VM 编译</a>
         </li>
-        <li class="md-nav__item"><a href="#Inference-with-Relay-VM" class="md-nav__link">Inference with Relay VM</a>
+        <li class="md-nav__item"><a href="#使用-Relay-VM-推理" class="md-nav__link">使用 Relay VM 推理</a>
         </li>
-        <li class="md-nav__item"><a href="#Get-boxes-with-score-larger-than-0.6" class="md-nav__link">Get boxes with score larger than 0.6</a>
+        <li class="md-nav__item"><a href="#获取得分大于-0.6-的-box" class="md-nav__link">获取得分大于 0.6 的 box</a>
         </li>
-        <li class="md-nav__item"><a href="#Verify-the-Inference-Output-on-TVM-backend" class="md-nav__link">Verify the Inference Output on TVM backend</a>
+        <li class="md-nav__item"><a href="#验证-TVM-后端的推理输出" class="md-nav__link">验证 TVM 后端的推理输出</a>
         </li></ul>
             </nav>
         </li>
@@ -627,23 +627,38 @@ div.rendered_html tbody tr:hover {
     .nboutput .prompt {
         display: none;
     }
-</style><section id="Deploying-yolort-on-TVM">
-<h1 id="notebooks-export-relay-inference-tvm--page-root">Deploying yolort on TVM<a class="headerlink" href="#notebooks-export-relay-inference-tvm--page-root" title="Permalink to this heading">¶</a></h1>
-<p>This article is an introductory tutorial to deploy PyTorch YOLOv5 models with Relay VM.</p>
-<p>For us to begin with, PyTorch should be installed. TorchVision is also required since we will be using it as our model zoo.</p>
-<p>A quick solution is to install via pip</p>
+</style><section id="在-TVM-上部署-yolort">
+<h1 id="notebooks-export-relay-inference-tvm--page-root">在 TVM 上部署 yolort<a class="headerlink" href="#notebooks-export-relay-inference-tvm--page-root" title="Permalink to this heading">¶</a></h1>
+<p>本文是使用 Relay VM 部署 PyTorch YOLOv5 模型的介绍性教程。</p>
+<p>首先应该安装 PyTorch。TorchVision 也是必需的，因为将使用它作为模型动物园。</p>
+<p>快速解决方案：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="nv">torch</span><span class="o">==</span><span class="m">1</span>.10.1
 pip install <span class="nv">torchvision</span><span class="o">==</span><span class="m">0</span>.11.2
 </pre></div>
 </div>
-<p>or please refer to official site <a class="reference external" href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a></p>
-<p>PyTorch versions should be backwards compatible but should be used with the proper TorchVision version.</p>
-<p>Currently, Only test <code class="docutils literal notranslate"><span class="pre">TVM</span></code> with PyTorch 1.7.x and 1.10.x, other versions may be unstable.</p>
-<p>And this notebook is running on macOS M1.</p>
+<p>或者参考官方教程： <a class="reference external" href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a></p>
+<p>PyTorch 版本应该向后兼容，但应该与正确的 TorchVision 版本一起使用。</p>
+<p>目前，仅用 PyTorch 1.7.x 和 1.10.x 测试 <code class="docutils literal notranslate"><span class="pre">TVM</span></code>。其他版本可能不稳定。</p>
+<p>这个笔记本是用 macOS M1 运行的。</p>
 <hr class="docutils"/>
-<p>Copyright © Most of the codes is copied from the <a class="reference external" href="https://tvm.apache.org/docs/tutorials/frontend/deploy_object_detection_pytorch.html#sphx-glr-tutorials-frontend-deploy-object-detection-pytorch-py">TVM tutorial</a>.</p>
+<p>版权所有 © 大多数代码复制自 <a class="reference external" href="https://tvm.apache.org/docs/tutorials/frontend/deploy_object_detection_pytorch.html#sphx-glr-tutorials-frontend-deploy-object-detection-pytorch-py">TVM 教程</a>。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 加载 TVM</span>
+<span class="kn">from</span> <span class="nn">tvm_book.tvm.env</span> <span class="kn">import</span> <span class="n">set_mxnet</span><span class="p">,</span> <span class="n">set_tvm</span><span class="p">,</span> <span class="n">set_cudnn</span>
+<span class="c1"># TVM_ROOT = "/media/pc/data/4tb/zzy/zzy/npu/tvm"</span>
+<span class="n">TVM_ROOT</span> <span class="o">=</span> <span class="s2">"/media/pc/data/4tb/lxw/tvm"</span>
+<span class="n">TVM_ROOT</span> <span class="o">=</span> <span class="s2">"/media/pc/data/4tb/lxw/books/tvm"</span>
+<span class="n">set_tvm</span><span class="p">(</span><span class="n">TVM_ROOT</span><span class="p">)</span>
+<span class="n">set_mxnet</span><span class="p">()</span>
+<span class="n">set_cudnn</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tvm</span>
@@ -660,10 +675,10 @@ pip install <span class="nv">torchvision</span><span class="o">==</span><span cl
 </pre></div>
 </div>
 </div>
-<section id="Load-pre-trained-yolov5n-from-yolort-and-do-tracing">
-<h2 id="Load-pre-trained-yolov5n-from-yolort-and-do-tracing">Load pre-trained <code class="docutils literal notranslate"><span class="pre">yolov5n</span></code> from yolort and do tracing<a class="headerlink" href="#Load-pre-trained-yolov5n-from-yolort-and-do-tracing" title="Permalink to this heading">¶</a></h2>
+<section id="加载预训练的-yolov5n-模型并追踪">
+<h2 id="加载预训练的-yolov5n-模型并追踪">加载预训练的 <code class="docutils literal notranslate"><span class="pre">yolov5n</span></code> 模型并追踪<a class="headerlink" href="#加载预训练的-yolov5n-模型并追踪" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in_size</span> <span class="o">=</span> <span class="mi">640</span>
@@ -672,7 +687,7 @@ pip install <span class="nv">torchvision</span><span class="o">==</span><span cl
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yolort.models</span> <span class="kn">import</span> <span class="n">yolov5n</span>
@@ -680,8 +695,8 @@ pip install <span class="nv">torchvision</span><span class="o">==</span><span cl
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_func</span> <span class="o">=</span> <span class="n">yolov5n</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">in_size</span><span class="p">,</span> <span class="n">in_size</span><span class="p">))</span>
@@ -689,39 +704,8 @@ pip install <span class="nv">torchvision</span><span class="o">==</span><span cl
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/zhiqiang/miniconda3/envs/tvm/lib/python3.8/site-packages/torch/_jit_internal.py:668: LightningDeprecationWarning: The `LightningModule.loaded_optimizer_states_dict` property is deprecated in v1.4 and will be removed in v1.6.
-  if hasattr(mod, name):
-/Users/zhiqiang/miniconda3/envs/tvm/lib/python3.8/site-packages/torch/_jit_internal.py:668: LightningDeprecationWarning: The `LightningModule.model_size` property was deprecated in v1.5 and will be removed in v1.7. Please use the `pytorch_lightning.utilities.memory.get_model_size_mb`.
-  if hasattr(mod, name):
-/Users/zhiqiang/miniconda3/envs/tvm/lib/python3.8/site-packages/torch/_jit_internal.py:669: LightningDeprecationWarning: The `LightningModule.model_size` property was deprecated in v1.5 and will be removed in v1.7. Please use the `pytorch_lightning.utilities.memory.get_model_size_mb`.
-  item = getattr(mod, name)
-/Users/zhiqiang/Coding/yolov5-rt-stack/yolort/models/yolo_module.py:113: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
-  for img in inputs:
-/Users/zhiqiang/Coding/yolov5-rt-stack/yolort/models/transform.py:179: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
-  images = [img for img in images]
-/Users/zhiqiang/miniconda3/envs/tvm/lib/python3.8/site-packages/torch/nn/functional.py:3701: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
-  (torch.floor((input.size(i + 2).float() * torch.tensor(scale_factors[i], dtype=torch.float32)).float()))
-/Users/zhiqiang/Coding/yolov5-rt-stack/yolort/models/transform.py:282: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
-  img_h, img_w = _get_shape_onnx(img)
-/Users/zhiqiang/miniconda3/envs/tvm/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
-  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
-/Users/zhiqiang/Coding/yolov5-rt-stack/yolort/models/anchor_utils.py:45: TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
-  anchors = torch.as_tensor(self.anchor_grids, dtype=torch.float32, device=device).to(dtype=dtype)
-/Users/zhiqiang/Coding/yolov5-rt-stack/yolort/models/anchor_utils.py:46: TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
-  strides = torch.as_tensor(self.strides, dtype=torch.float32, device=device).to(dtype=dtype)
-/Users/zhiqiang/Coding/yolov5-rt-stack/yolort/models/box_head.py:402: TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
-  strides = torch.as_tensor(self.strides, dtype=torch.float32, device=device).to(dtype=dtype)
-/Users/zhiqiang/Coding/yolov5-rt-stack/yolort/models/box_head.py:333: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
-  for head_output, grid, shift, stride in zip(head_outputs, grids, shifts, strides):
-</pre></div></div>
-</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">script_module</span><span class="o">.</span><span class="n">graph</span>
@@ -729,25 +713,25 @@ pip install <span class="nv">torchvision</span><span class="o">==</span><span cl
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 graph(%self.1 : __torch__.yolort.relay.trace_wrapper.TraceWrapper,
-      %x : Float(1, 3, 640, 640, strides=[1228800, 409600, 640, 1], requires_grad=0, device=cpu)):
-  %model : __torch__.yolort.models.yolo_module.YOLOv5 = prim::GetAttr[name="model"](%self.1)
-  %4973 : (Tensor, Tensor, Tensor) = prim::CallMethod[name="forward"](%model, %x)
-  %4970 : Float(0, 4, strides=[4, 1], requires_grad=0, device=cpu), %4971 : Float(0, strides=[1], requires_grad=0, device=cpu), %4972 : Long(0, strides=[1], requires_grad=0, device=cpu) = prim::TupleUnpack(%4973)
-  %3751 : (Float(0, 4, strides=[4, 1], requires_grad=0, device=cpu), Float(0, strides=[1], requires_grad=0, device=cpu), Long(0, strides=[1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%4970, %4971, %4972)
-  return (%3751)
+      %images : Float(1, 3, 640, 640, strides=[1228800, 409600, 640, 1], requires_grad=0, device=cpu)):
+  %4653 : __torch__.yolort.models.yolov5.YOLOv5 = prim::GetAttr[name="model"](%self.1)
+  %5021 : (Tensor, Tensor, Tensor) = prim::CallMethod[name="forward"](%4653, %images)
+  %5018 : Float(0, 4, strides=[4, 1], requires_grad=0, device=cpu), %5019 : Float(0, strides=[1], requires_grad=0, device=cpu), %5020 : Long(0, strides=[1], requires_grad=0, device=cpu) = prim::TupleUnpack(%5021)
+  %3799 : (Float(0, 4, strides=[4, 1], requires_grad=0, device=cpu), Float(0, strides=[1], requires_grad=0, device=cpu), Long(0, strides=[1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%5018, %5019, %5020)
+  return (%3799)
 </pre></div></div>
 </div>
 </section>
-<section id="Download-a-test-image-and-pre-process">
-<h2 id="Download-a-test-image-and-pre-process">Download a test image and pre-process<a class="headerlink" href="#Download-a-test-image-and-pre-process" title="Permalink to this heading">¶</a></h2>
+<section id="下载测试图片并预处理">
+<h2 id="下载测试图片并预处理">下载测试图片并预处理<a class="headerlink" href="#下载测试图片并预处理" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yolort.utils</span> <span class="kn">import</span> <span class="n">get_image_from_url</span>
@@ -765,10 +749,10 @@ graph(%self.1 : __torch__.yolort.relay.trace_wrapper.TraceWrapper,
 </div>
 </div>
 </section>
-<section id="Import-the-graph-to-Relay">
-<h2 id="Import-the-graph-to-Relay">Import the graph to Relay<a class="headerlink" href="#Import-the-graph-to-Relay" title="Permalink to this heading">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<section id="导入-graph-到-Relay">
+<h2 id="导入-graph-到-Relay">导入 graph 到 Relay<a class="headerlink" href="#导入-graph-到-Relay" title="Permalink to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_name</span> <span class="o">=</span> <span class="s2">"input0"</span>
@@ -777,105 +761,12 @@ graph(%self.1 : __torch__.yolort.relay.trace_wrapper.TraceWrapper,
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using reduce.cpu for min based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using reduce.cpu for max based on highest priority (10)
-Using injective.cpu for minimum based on highest priority (10)
-Using injective.cpu for floor based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using reduce.cpu for min based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using reduce.cpu for max based on highest priority (10)
-Using injective.cpu for minimum based on highest priority (10)
-Using injective.cpu for floor based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using reduce.cpu for max based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for ceil based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for split based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for round based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using reduce.cpu for max based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for ceil based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for split based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for round based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using reduce.cpu for max based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for ceil based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for split based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for round based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using reduce.cpu for max based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for ceil based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for split based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for round based on highest priority (10)
-</pre></div></div>
-</div>
 </section>
-<section id="Compile-with-Relay-VM">
-<h2 id="Compile-with-Relay-VM">Compile with Relay VM<a class="headerlink" href="#Compile-with-Relay-VM" title="Permalink to this heading">¶</a></h2>
-<p>Note: Currently only CPU target is supported. For x86 target, it is highly recommended to build TVM with Intel MKL and Intel OpenMP to get best performance, due to the existence of large dense operator in torchvision rcnn models.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<section id="使用-Relay-VM-编译">
+<h2 id="使用-Relay-VM-编译">使用 Relay VM 编译<a class="headerlink" href="#使用-Relay-VM-编译" title="Permalink to this heading">¶</a></h2>
+<p>注:目前只支持 CPU target。对于 x86 target，由于在 torchvision rcnn 模型中存在较大的 dense 算子，因此强烈推荐使用 Intel MKL 和 Intel OpenMP 构建 TVM 以获得最佳性能。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add "-libs=mkl" to get best performance on x86 target.</span>
@@ -888,1345 +779,11 @@ Using injective.cpu for round based on highest priority (10)
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sqrt based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for negative based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for arange based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for meshgrid based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for take based on highest priority (10)
-Using injective.cpu for copy based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for arange based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for meshgrid based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for take based on highest priority (10)
-Using injective.cpu for copy based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for arange based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for meshgrid based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for take based on highest priority (10)
-Using injective.cpu for copy based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for repeat based on highest priority (10)
-Using injective.cpu for split based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for less based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for take based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for take based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for minimum based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-One or more operators have not been tuned. Please tune your model for better performance. Use DEBUG logging level to see more details.
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using conv2d_nchw.x86 for nn.conv2d based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for split based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for image.resize2d based on highest priority (10)
-Using injective.cpu for take based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using pool.cpu for nn.max_pool2d based on highest priority (10)
-Using pool.cpu for nn.max_pool2d based on highest priority (10)
-Using pool.cpu for nn.max_pool2d based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for image.resize2d based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for image.resize2d based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using conv2d_NCHWc.x86 for nn.contrib_conv2d_NCHWc based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using transpose.generic for transpose based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for power based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using transpose.generic for transpose based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for power based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using injective.cpu for layout_transform based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using transpose.generic for transpose based on highest priority (10)
-Using injective.cpu for sigmoid based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for power based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using injective.cpu for reshape based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using injective.cpu for take based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for greater based on highest priority (10)
-Using argwhere.generic for argwhere based on highest priority (10)
-Using injective.cpu for split based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for adv_index based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for split based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for adv_index based on highest priority (10)
-Using injective.cpu for ndarray_size based on highest priority (10)
-Using injective.cpu for equal based on highest priority (10)
-Using injective.cpu for zeros based on highest priority (10)
-Using reduce.cpu for min based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using reduce.cpu for max based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using concatenate.cpu for concatenate based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using injective.cpu for shape_of based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for arange based on highest priority (10)
-Using injective.cpu for expand_dims based on highest priority (10)
-Using nms.generic for vision.non_max_suppression based on highest priority (10)
-[12:46:54] /Users/zhiqiang/Coding/tvm/src/te/schedule/bound.cc:119: not in feed graph consumer = hybrid(hybrid_nms, 0x60000a817250)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for shape_of based on highest priority (10)
-Using injective.cpu for slice_like based on highest priority (10)
-Using injective.cpu for where based on highest priority (10)
-Using injective.cpu for greater_equal based on highest priority (10)
-Using injective.cpu for where based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for dyn.strided_slice based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for strided_slice based on highest priority (10)
-Using injective.cpu for adv_index based on highest priority (10)
-Using injective.cpu for split based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for squeeze based on highest priority (10)
-Using injective.cpu for subtract based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for stack based on highest priority (10)
-Using injective.cpu for adv_index based on highest priority (10)
-Using injective.cpu for adv_index based on highest priority (10)
-[12:46:54] /Users/zhiqiang/Coding/tvm/src/relay/transforms/let_list.h:54: Warning: letlist not used
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for cast based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using injective.cpu for add based on highest priority (10)
-Using injective.cpu for divide based on highest priority (10)
-Using reduce.cpu for prod based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using reduce.cpu for prod based on highest priority (10)
-Using injective.cpu for multiply based on highest priority (10)
-Using reduce.cpu for prod based on highest priority (10)
-[12:46:55] /Users/zhiqiang/Coding/tvm/src/relay/transforms/let_list.h:54: Warning: letlist not used
-[12:46:55] /Users/zhiqiang/Coding/tvm/src/relay/transforms/let_list.h:54: Warning: letlist not used
-</pre></div></div>
-</div>
 </section>
-<section id="Inference-with-Relay-VM">
-<h2 id="Inference-with-Relay-VM">Inference with Relay VM<a class="headerlink" href="#Inference-with-Relay-VM" title="Permalink to this heading">¶</a></h2>
+<section id="使用-Relay-VM-推理">
+<h2 id="使用-Relay-VM-推理">使用 Relay VM 推理<a class="headerlink" href="#使用-Relay-VM-推理" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ctx</span> <span class="o">=</span> <span class="n">tvm</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
@@ -2237,7 +794,7 @@ Using reduce.cpu for prod based on highest priority (10)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
@@ -2251,14 +808,14 @@ Using reduce.cpu for prod based on highest priority (10)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-65.2 ms ± 1.31 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+52.7 ms ± 2.53 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div></div>
 </div>
 </section>
-<section id="Get-boxes-with-score-larger-than-0.6">
-<h2 id="Get-boxes-with-score-larger-than-0.6">Get boxes with score larger than 0.6<a class="headerlink" href="#Get-boxes-with-score-larger-than-0.6" title="Permalink to this heading">¶</a></h2>
+<section id="获取得分大于-0.6-的-box">
+<h2 id="获取得分大于-0.6-的-box">获取得分大于 0.6 的 box<a class="headerlink" href="#获取得分大于-0.6-的-box" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score_threshold</span> <span class="o">=</span> <span class="mf">0.6</span>
@@ -2283,10 +840,10 @@ Get 4 valid boxes
 </pre></div></div>
 </div>
 </section>
-<section id="Verify-the-Inference-Output-on-TVM-backend">
-<h2 id="Verify-the-Inference-Output-on-TVM-backend">Verify the Inference Output on TVM backend<a class="headerlink" href="#Verify-the-Inference-Output-on-TVM-backend" title="Permalink to this heading">¶</a></h2>
+<section id="验证-TVM-后端的推理输出">
+<h2 id="验证-TVM-后端的推理输出">验证 TVM 后端的推理输出<a class="headerlink" href="#验证-TVM-后端的推理输出" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
@@ -2295,7 +852,7 @@ Get 4 valid boxes
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">torch_res</span><span class="p">)):</span>
@@ -2312,6 +869,14 @@ Get 4 valid boxes
 <div class="highlight"><pre>
 Exported model has been tested with TVM Runtime, and the result looks good!
 </pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </section>
 </section>

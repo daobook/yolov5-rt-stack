@@ -47,7 +47,7 @@
   
   
   
-    <title>Visualize model graph &#8212; yolort  documentation</title>
+    <title>可视化模型 graph &#8212; yolort  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Deploying yolort on ONNX Runtime" href="export-onnx-inference-onnxruntime.html" />
-    <link rel="prev" title="Visualize the anchor-target assignment" href="anchor-label-assignment-visualization.html" />
+    <link rel="prev" title="可视化 anchor-target 赋值" href="anchor-label-assignment-visualization.html" />
   
    
 
@@ -99,7 +99,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">YOLOv5 Runtime Stack</span>
-          <span class="md-header-nav__topic"> Visualize model graph </span>
+          <span class="md-header-nav__topic"> 可视化模型 graph </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -206,28 +206,28 @@
     <li class="md-nav__item">
     
     
-      <a href="inference-pytorch-export-libtorch.html" class="md-nav__link">Intuition for yolort</a>
+      <a href="inference-pytorch-export-libtorch.html" class="md-nav__link">yolort 直觉</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="comparison-between-yolort-vs-yolov5.html" class="md-nav__link">What is the difference between yolort and yolov5</a>
+      <a href="comparison-between-yolort-vs-yolov5.html" class="md-nav__link">yolort 和 yolov5 的差异</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">How to align with ultralytics yolov5</a>
+      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">如何与 ultralytics yolov5 对齐</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="anchor-label-assignment-visualization.html" class="md-nav__link">Visualize the anchor-target assignment</a>
+      <a href="anchor-label-assignment-visualization.html" class="md-nav__link">可视化 anchor-target 赋值</a>
       
     
     </li>
@@ -235,9 +235,9 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Visualize model graph </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> 可视化模型 graph </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">Visualize model graph</a>
+      <a href="#" class="md-nav__link md-nav__link--active">可视化模型 graph</a>
       
         
 <nav class="md-nav md-nav--secondary">
@@ -269,7 +269,7 @@
     <li class="md-nav__item">
     
     
-      <a href="export-relay-inference-tvm.html" class="md-nav__link">Deploying yolort on TVM</a>
+      <a href="export-relay-inference-tvm.html" class="md-nav__link">在 TVM 上部署 yolort</a>
       
     
     </li>
@@ -589,9 +589,9 @@ div.rendered_html tbody tr:hover {
     .nboutput .prompt {
         display: none;
     }
-</style><section id="Visualize-model-graph">
-<h1 id="notebooks-model-graph-visualization--page-root">Visualize model graph<a class="headerlink" href="#notebooks-model-graph-visualization--page-root" title="Permalink to this heading">¶</a></h1>
-<p>Above all, we need graphviz package. You can also refer to graphviz <a class="reference external" href="https://graphviz.readthedocs.io/en/stable/manual.html">documentation</a></p>
+</style><section id="可视化模型-graph">
+<h1 id="notebooks-model-graph-visualization--page-root">可视化模型 graph<a class="headerlink" href="#notebooks-model-graph-visualization--page-root" title="Permalink to this heading">¶</a></h1>
+<p>首先，我们需要 graphviz 包。也可以参考 graphviz <a class="reference external" href="https://graphviz.readthedocs.io/en/stable/manual.html">文档</a>。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -U graphviz
 </pre></div>
 </div>
@@ -604,45 +604,14 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">yolov5s</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">tracing_module</span> <span class="o">=</span> <span class="n">get_trace_module</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.9/site-packages/torch/_jit_internal.py:668: LightningDeprecationWarning: The `LightningModule.datamodule` property is deprecated in v1.3 and will be removed in v1.5. Access the datamodule through using `self.trainer.datamodule` instead.
-  if hasattr(mod, name):
-/usr/local/lib/python3.9/site-packages/torch/_jit_internal.py:668: LightningDeprecationWarning: The `LightningModule.loaded_optimizer_states_dict` property is deprecated in v1.4 and will be removed in v1.6.
-  if hasattr(mod, name):
-/Users/chi/Documents/projects/coding/yolov5-rt-stack/yolort/models/yolo_module.py:97: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
-  for img in inputs:
-/Users/chi/Documents/projects/coding/yolov5-rt-stack/yolort/models/transform.py:79: TracerWarning: Iterating over a tensor might cause the trace to be incorrect. Passing a tensor of different shape won't change the number of iterations executed (and might lead to errors or silently give incorrect results).
-  images = [img for img in images]
-/Users/chi/Documents/projects/coding/yolov5-rt-stack/yolort/models/anchor_utils.py:31: TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
-  stride = torch.as_tensor([stride], dtype=dtype, device=device)
-/Users/chi/Documents/projects/coding/yolov5-rt-stack/yolort/models/anchor_utils.py:50: TracerWarning: torch.as_tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
-  anchor_grid = torch.as_tensor(anchor_grid, dtype=dtype, device=device)
-/usr/local/lib/python3.9/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
-  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
-/Users/chi/Documents/projects/coding/yolov5-rt-stack/yolort/models/anchor_utils.py:79: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
-  shifts = shifts - torch.tensor(0.5, dtype=shifts.dtype, device=device)
-/Users/chi/Documents/projects/coding/yolov5-rt-stack/yolort/models/transform.py:312: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
-  torch.tensor(s, dtype=torch.float32, device=boxes.device)
-/Users/chi/Documents/projects/coding/yolov5-rt-stack/yolort/models/transform.py:312: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
-  torch.tensor(s, dtype=torch.float32, device=boxes.device)
-/Users/chi/Documents/projects/coding/yolov5-rt-stack/yolort/models/transform.py:313: TracerWarning: torch.tensor results are registered as constants in the trace. You can safely ignore this warning if you use this function to create tensors out of constant variables that would be the same every time you call this function. In any other case, this might cause the trace to be incorrect.
-  / torch.tensor(s_orig, dtype=torch.float32, device=boxes.device)
-/Users/chi/Documents/projects/coding/yolov5-rt-stack/yolort/models/transform.py:313: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
-  / torch.tensor(s_orig, dtype=torch.float32, device=boxes.device)
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -727,6 +696,14 @@ def forward(self,
 <div class="output_area docutils container">
 <img alt="../_images/notebooks_model-graph-visualization_11_0.svg" src="../_images/notebooks_model-graph-visualization_11_0.svg"/></div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 </section>
 <p>View this document as a notebook:
 <a class="reference external" href="https://github.com/zhiqwang/yolov5-rt-stack/blob/main/notebooks/model-graph-visualization.ipynb">https://github.com/zhiqwang/yolov5-rt-stack/blob/main/notebooks/model-graph-visualization.ipynb</a></p>
@@ -742,7 +719,7 @@ def forward(self,
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="anchor-label-assignment-visualization.html" title="Visualize the anchor-target assignment"
+            <a href="anchor-label-assignment-visualization.html" title="可视化 anchor-target 赋值"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -751,7 +728,7 @@ def forward(self,
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Visualize the anchor-target assignment </span>
+                      class="md-footer-nav__direction"> Previous </span> 可视化 anchor-target 赋值 </span>
               </div>
             </a>
           

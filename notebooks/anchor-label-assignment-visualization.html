@@ -47,7 +47,7 @@
   
   
   
-    <title>Visualize the anchor-target assignment &#8212; yolort  documentation</title>
+    <title>可视化 anchor-target 赋值 &#8212; yolort  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -60,8 +60,8 @@
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Visualize model graph" href="model-graph-visualization.html" />
-    <link rel="prev" title="How to align with ultralytics yolov5" href="how-to-align-with-ultralytics-yolov5.html" />
+    <link rel="next" title="可视化模型 graph" href="model-graph-visualization.html" />
+    <link rel="prev" title="如何与 ultralytics yolov5 对齐" href="how-to-align-with-ultralytics-yolov5.html" />
   
    
 
@@ -99,7 +99,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">YOLOv5 Runtime Stack</span>
-          <span class="md-header-nav__topic"> Visualize the anchor-target assignment </span>
+          <span class="md-header-nav__topic"> 可视化 anchor-target 赋值 </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -206,21 +206,21 @@
     <li class="md-nav__item">
     
     
-      <a href="inference-pytorch-export-libtorch.html" class="md-nav__link">Intuition for yolort</a>
+      <a href="inference-pytorch-export-libtorch.html" class="md-nav__link">yolort 直觉</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="comparison-between-yolort-vs-yolov5.html" class="md-nav__link">What is the difference between yolort and yolov5</a>
+      <a href="comparison-between-yolort-vs-yolov5.html" class="md-nav__link">yolort 和 yolov5 的差异</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">How to align with ultralytics yolov5</a>
+      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">如何与 ultralytics yolov5 对齐</a>
       
     
     </li>
@@ -228,25 +228,25 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Visualize the anchor-target assignment </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> 可视化 anchor-target 赋值 </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">Visualize the anchor-target assignment</a>
+      <a href="#" class="md-nav__link md-nav__link--active">可视化 anchor-target 赋值</a>
       
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#notebooks-anchor-label-assignment-visualization--page-root" class="md-nav__link">Visualize the anchor-target assignment</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#notebooks-anchor-label-assignment-visualization--page-root" class="md-nav__link">可视化 anchor-target 赋值</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Setup-the-coco128-dataset-and-dataloader-for-testing" class="md-nav__link">Setup the coco128 dataset and dataloader for testing</a>
+        <li class="md-nav__item"><a href="#为测试设定-coco128-dataset-和-dataloader" class="md-nav__link">为测试设定 coco128 dataset 和 dataloader</a>
         </li>
-        <li class="md-nav__item"><a href="#Sample-images-and-targets" class="md-nav__link">Sample images and targets</a>
+        <li class="md-nav__item"><a href="#采样图片和目标" class="md-nav__link">采样图片和目标</a>
         </li>
         <li class="md-nav__item"><a href="#Training-Batch-in-Pipeline" class="md-nav__link">Training Batch in Pipeline</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Extractor-Intermediate-Feature" class="md-nav__link">Extractor Intermediate Feature</a>
+        <li class="md-nav__item"><a href="#提取中间特征" class="md-nav__link">提取中间特征</a>
         </li>
-        <li class="md-nav__item"><a href="#Obtain-Anchors-and-Strides" class="md-nav__link">Obtain Anchors and Strides</a>
+        <li class="md-nav__item"><a href="#获取-Anchors-和-Strides" class="md-nav__link">获取 Anchors 和 Strides</a>
         </li>
         <li class="md-nav__item"><a href="#Assign-Targets-to-Anchors" class="md-nav__link">Assign Targets to Anchors</a>
         </li>
@@ -264,7 +264,7 @@
     <li class="md-nav__item">
     
     
-      <a href="model-graph-visualization.html" class="md-nav__link">Visualize model graph</a>
+      <a href="model-graph-visualization.html" class="md-nav__link">可视化模型 graph</a>
       
     
     </li>
@@ -290,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="export-relay-inference-tvm.html" class="md-nav__link">Deploying yolort on TVM</a>
+      <a href="export-relay-inference-tvm.html" class="md-nav__link">在 TVM 上部署 yolort</a>
       
     
     </li>
@@ -341,17 +341,17 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#notebooks-anchor-label-assignment-visualization--page-root" class="md-nav__link">Visualize the anchor-target assignment</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#notebooks-anchor-label-assignment-visualization--page-root" class="md-nav__link">可视化 anchor-target 赋值</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Setup-the-coco128-dataset-and-dataloader-for-testing" class="md-nav__link">Setup the coco128 dataset and dataloader for testing</a>
+        <li class="md-nav__item"><a href="#为测试设定-coco128-dataset-和-dataloader" class="md-nav__link">为测试设定 coco128 dataset 和 dataloader</a>
         </li>
-        <li class="md-nav__item"><a href="#Sample-images-and-targets" class="md-nav__link">Sample images and targets</a>
+        <li class="md-nav__item"><a href="#采样图片和目标" class="md-nav__link">采样图片和目标</a>
         </li>
         <li class="md-nav__item"><a href="#Training-Batch-in-Pipeline" class="md-nav__link">Training Batch in Pipeline</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Extractor-Intermediate-Feature" class="md-nav__link">Extractor Intermediate Feature</a>
+        <li class="md-nav__item"><a href="#提取中间特征" class="md-nav__link">提取中间特征</a>
         </li>
-        <li class="md-nav__item"><a href="#Obtain-Anchors-and-Strides" class="md-nav__link">Obtain Anchors and Strides</a>
+        <li class="md-nav__item"><a href="#获取-Anchors-和-Strides" class="md-nav__link">获取 Anchors 和 Strides</a>
         </li>
         <li class="md-nav__item"><a href="#Assign-Targets-to-Anchors" class="md-nav__link">Assign Targets to Anchors</a>
         </li>
@@ -631,8 +631,8 @@ div.rendered_html tbody tr:hover {
     .nboutput .prompt {
         display: none;
     }
-</style><section id="Visualize-the-anchor-target-assignment">
-<h1 id="notebooks-anchor-label-assignment-visualization--page-root">Visualize the anchor-target assignment<a class="headerlink" href="#notebooks-anchor-label-assignment-visualization--page-root" title="Permalink to this heading">¶</a></h1>
+</style><section id="可视化-anchor-target-赋值">
+<h1 id="notebooks-anchor-label-assignment-visualization--page-root">可视化 anchor-target 赋值<a class="headerlink" href="#notebooks-anchor-label-assignment-visualization--page-root" title="Permalink to this heading">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -676,7 +676,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yolort.data</span> <span class="kn">import</span> <span class="n">COCODetectionDataModule</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yolort.data.data_module</span> <span class="kn">import</span> <span class="n">COCODetectionDataModule</span>
 <span class="kn">from</span> <span class="nn">yolort.models.transform</span> <span class="kn">import</span> <span class="n">YOLOTransform</span>
 <span class="kn">from</span> <span class="nn">yolort.utils.image_utils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">color_list</span><span class="p">,</span>
@@ -689,8 +689,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<section id="Setup-the-coco128-dataset-and-dataloader-for-testing">
-<h2 id="Setup-the-coco128-dataset-and-dataloader-for-testing">Setup the coco128 dataset and dataloader for testing<a class="headerlink" href="#Setup-the-coco128-dataset-and-dataloader-for-testing" title="Permalink to this heading">¶</a></h2>
+<section id="为测试设定-coco128-dataset-和-dataloader">
+<h2 id="为测试设定-coco128-dataset-和-dataloader">为测试设定 coco128 dataset 和 dataloader<a class="headerlink" href="#为测试设定-coco128-dataset-和-dataloader" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -716,13 +716,13 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acquire the images and labels from the coco128 dataset</span>
-<span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'data-bin'</span><span class="p">)</span>
-<span class="n">coco128_dirname</span> <span class="o">=</span> <span class="s1">'coco128'</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'/media/pc/data/4tb/lxw/tests/datasets'</span><span class="p">)</span>
+<span class="n">coco128_dirname</span> <span class="o">=</span> <span class="s1">'coco'</span>
 <span class="n">coco128_path</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">/</span> <span class="n">coco128_dirname</span>
 <span class="n">image_root</span> <span class="o">=</span> <span class="n">coco128_path</span> <span class="o">/</span> <span class="s1">'images'</span> <span class="o">/</span> <span class="s1">'train2017'</span>
 <span class="n">annotation_path</span> <span class="o">=</span> <span class="n">coco128_path</span> <span class="o">/</span> <span class="s1">'annotations'</span>
@@ -739,8 +739,100 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">JSONDecodeError</span>                           Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">/media/pc/data/4tb/lxw/books/yolov5-rt-stack/docs/source/notebooks/anchor-label-assignment-visualization.ipynb Cell 8'</span> in <span class="ansi-cyan-fg">&lt;cell line: 10&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href='vscode-notebook-cell://ssh-remote%2Bxin/media/pc/data/4tb/lxw/books/yolov5-rt-stack/docs/source/notebooks/anchor-label-assignment-visualization.ipynb#ch0000007vscode-remote?line=7'&gt;8&lt;/a&gt;</span> batch_size = 8
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://ssh-remote%2Bxin/media/pc/data/4tb/lxw/books/yolov5-rt-stack/docs/source/notebooks/anchor-label-assignment-visualization.ipynb#ch0000007vscode-remote?line=9'&gt;10&lt;/a&gt;</span> with contextlib.redirect_stdout(io.StringIO()):
+<span class="ansi-green-fg">---&gt; &lt;a href='vscode-notebook-cell://ssh-remote%2Bxin/media/pc/data/4tb/lxw/books/yolov5-rt-stack/docs/source/notebooks/anchor-label-assignment-visualization.ipynb#ch0000007vscode-remote?line=10'&gt;11&lt;/a&gt;</span>     datamodule = COCODetectionDataModule(
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://ssh-remote%2Bxin/media/pc/data/4tb/lxw/books/yolov5-rt-stack/docs/source/notebooks/anchor-label-assignment-visualization.ipynb#ch0000007vscode-remote?line=11'&gt;12&lt;/a&gt;</span>         image_root,
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://ssh-remote%2Bxin/media/pc/data/4tb/lxw/books/yolov5-rt-stack/docs/source/notebooks/anchor-label-assignment-visualization.ipynb#ch0000007vscode-remote?line=12'&gt;13&lt;/a&gt;</span>         anno_path=annotation_path,
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://ssh-remote%2Bxin/media/pc/data/4tb/lxw/books/yolov5-rt-stack/docs/source/notebooks/anchor-label-assignment-visualization.ipynb#ch0000007vscode-remote?line=13'&gt;14&lt;/a&gt;</span>         skip_val_set=True,
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://ssh-remote%2Bxin/media/pc/data/4tb/lxw/books/yolov5-rt-stack/docs/source/notebooks/anchor-label-assignment-visualization.ipynb#ch0000007vscode-remote?line=14'&gt;15&lt;/a&gt;</span>         batch_size=batch_size,
+<span class="ansi-green-intense-fg ansi-bold">     &lt;a href='vscode-notebook-cell://ssh-remote%2Bxin/media/pc/data/4tb/lxw/books/yolov5-rt-stack/docs/source/notebooks/anchor-label-assignment-visualization.ipynb#ch0000007vscode-remote?line=15'&gt;16&lt;/a&gt;</span>     )
+
+File <span class="ansi-green-fg">/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/site-packages/yolort/data/data_module.py:111</span>, in <span class="ansi-cyan-fg">COCODetectionDataModule.__init__</span><span class="ansi-blue-fg">(self, data_path, anno_path, num_classes, data_task, train_set, val_set, skip_train_set, skip_val_set, train_transform, val_transform, batch_size, num_workers, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    107</span> train_ann_file = anno_path / f"{data_task}_{train_set}.json"
+<span class="ansi-green-intense-fg ansi-bold">    108</span> val_ann_file = anno_path / f"{data_task}_{val_set}.json"
+<span class="ansi-green-intense-fg ansi-bold">    110</span> train_dataset = (
+<span class="ansi-green-fg">--&gt; 111</span>     None if skip_train_set else COCODetection(data_path, train_ann_file, train_transform())
+<span class="ansi-green-intense-fg ansi-bold">    112</span> )
+<span class="ansi-green-intense-fg ansi-bold">    113</span> val_dataset = None if skip_val_set else COCODetection(data_path, val_ann_file, val_transform())
+<span class="ansi-green-intense-fg ansi-bold">    115</span> super().__init__(
+<span class="ansi-green-intense-fg ansi-bold">    116</span>     train_dataset=train_dataset,
+<span class="ansi-green-intense-fg ansi-bold">    117</span>     val_dataset=val_dataset,
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    121</span>     **kwargs,
+<span class="ansi-green-intense-fg ansi-bold">    122</span> )
+
+File <span class="ansi-green-fg">/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/site-packages/yolort/data/coco.py:16</span>, in <span class="ansi-cyan-fg">COCODetection.__init__</span><span class="ansi-blue-fg">(self, img_folder, ann_file, transforms, return_masks)</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span> def __init__(self, img_folder, ann_file, transforms, return_masks=False):
+<span class="ansi-green-fg">---&gt; 16</span>     super().__init__(img_folder, ann_file)
+<span class="ansi-green-intense-fg ansi-bold">     17</span>     self._transforms = transforms
+<span class="ansi-green-intense-fg ansi-bold">     19</span>     json_category_id_to_contiguous_id = {v: i for i, v in enumerate(self.coco.getCatIds())}
+
+File <span class="ansi-green-fg">/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/site-packages/torchvision/datasets/coco.py:36</span>, in <span class="ansi-cyan-fg">CocoDetection.__init__</span><span class="ansi-blue-fg">(self, root, annFile, transform, target_transform, transforms)</span>
+<span class="ansi-green-intense-fg ansi-bold">     33</span> super().__init__(root, transforms, transform, target_transform)
+<span class="ansi-green-intense-fg ansi-bold">     34</span> from pycocotools.coco import COCO
+<span class="ansi-green-fg">---&gt; 36</span> self.coco = COCO(annFile)
+<span class="ansi-green-intense-fg ansi-bold">     37</span> self.ids = list(sorted(self.coco.imgs.keys()))
+
+File <span class="ansi-green-fg">/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/site-packages/pycocotools-2.0.4-py3.10-linux-x86_64.egg/pycocotools/coco.py:82</span>, in <span class="ansi-cyan-fg">COCO.__init__</span><span class="ansi-blue-fg">(self, annotation_file)</span>
+<span class="ansi-green-intense-fg ansi-bold">     80</span> tic = time.time()
+<span class="ansi-green-intense-fg ansi-bold">     81</span> with open(annotation_file, 'r') as f:
+<span class="ansi-green-fg">---&gt; 82</span>     dataset = json.load(f)
+<span class="ansi-green-intense-fg ansi-bold">     83</span> assert type(dataset)==dict, 'annotation file format {} not supported'.format(type(dataset))
+<span class="ansi-green-intense-fg ansi-bold">     84</span> print('Done (t={:0.2f}s)'.format(time.time()- tic))
+
+File <span class="ansi-green-fg">/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/json/__init__.py:293</span>, in <span class="ansi-cyan-fg">load</span><span class="ansi-blue-fg">(fp, cls, object_hook, parse_float, parse_int, parse_constant, object_pairs_hook, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    274</span> def load(fp, *, cls=None, object_hook=None, parse_float=None,
+<span class="ansi-green-intense-fg ansi-bold">    275</span>         parse_int=None, parse_constant=None, object_pairs_hook=None, **kw):
+<span class="ansi-green-intense-fg ansi-bold">    276</span>     """Deserialize ``fp`` (a ``.read()``-supporting file-like object containing
+<span class="ansi-green-intense-fg ansi-bold">    277</span>     a JSON document) to a Python object.
+<span class="ansi-green-intense-fg ansi-bold">    278</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    291</span>     kwarg; otherwise ``JSONDecoder`` is used.
+<span class="ansi-green-intense-fg ansi-bold">    292</span>     """
+<span class="ansi-green-fg">--&gt; 293</span>     return loads(fp.read(),
+<span class="ansi-green-intense-fg ansi-bold">    294</span>         cls=cls, object_hook=object_hook,
+<span class="ansi-green-intense-fg ansi-bold">    295</span>         parse_float=parse_float, parse_int=parse_int,
+<span class="ansi-green-intense-fg ansi-bold">    296</span>         parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+
+File <span class="ansi-green-fg">/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/json/__init__.py:346</span>, in <span class="ansi-cyan-fg">loads</span><span class="ansi-blue-fg">(s, cls, object_hook, parse_float, parse_int, parse_constant, object_pairs_hook, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    341</span>     s = s.decode(detect_encoding(s), 'surrogatepass')
+<span class="ansi-green-intense-fg ansi-bold">    343</span> if (cls is None and object_hook is None and
+<span class="ansi-green-intense-fg ansi-bold">    344</span>         parse_int is None and parse_float is None and
+<span class="ansi-green-intense-fg ansi-bold">    345</span>         parse_constant is None and object_pairs_hook is None and not kw):
+<span class="ansi-green-fg">--&gt; 346</span>     return _default_decoder.decode(s)
+<span class="ansi-green-intense-fg ansi-bold">    347</span> if cls is None:
+<span class="ansi-green-intense-fg ansi-bold">    348</span>     cls = JSONDecoder
+
+File <span class="ansi-green-fg">/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/json/decoder.py:337</span>, in <span class="ansi-cyan-fg">JSONDecoder.decode</span><span class="ansi-blue-fg">(self, s, _w)</span>
+<span class="ansi-green-intense-fg ansi-bold">    332</span> def decode(self, s, _w=WHITESPACE.match):
+<span class="ansi-green-intense-fg ansi-bold">    333</span>     """Return the Python representation of ``s`` (a ``str`` instance
+<span class="ansi-green-intense-fg ansi-bold">    334</span>     containing a JSON document).
+<span class="ansi-green-intense-fg ansi-bold">    335</span>
+<span class="ansi-green-intense-fg ansi-bold">    336</span>     """
+<span class="ansi-green-fg">--&gt; 337</span>     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+<span class="ansi-green-intense-fg ansi-bold">    338</span>     end = _w(s, end).end()
+<span class="ansi-green-intense-fg ansi-bold">    339</span>     if end != len(s):
+
+File <span class="ansi-green-fg">/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/json/decoder.py:355</span>, in <span class="ansi-cyan-fg">JSONDecoder.raw_decode</span><span class="ansi-blue-fg">(self, s, idx)</span>
+<span class="ansi-green-intense-fg ansi-bold">    353</span>     obj, end = self.scan_once(s, idx)
+<span class="ansi-green-intense-fg ansi-bold">    354</span> except StopIteration as err:
+<span class="ansi-green-fg">--&gt; 355</span>     raise JSONDecodeError("Expecting value", s, err.value) from None
+<span class="ansi-green-intense-fg ansi-bold">    356</span> return obj, end
+
+<span class="ansi-red-fg">JSONDecodeError</span>: Expecting value: line 1 column 455147521 (char 455147520)
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_dataloader</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">datamodule</span><span class="o">.</span><span class="n">train_dataloader</span><span class="p">())</span>
@@ -748,18 +840,18 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </section>
-<section id="Sample-images-and-targets">
-<h2 id="Sample-images-and-targets">Sample images and targets<a class="headerlink" href="#Sample-images-and-targets" title="Permalink to this heading">¶</a></h2>
+<section id="采样图片和目标">
+<h2 id="采样图片和目标">采样图片和目标<a class="headerlink" href="#采样图片和目标" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span><span class="p">,</span> <span class="n">annotations</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">test_dataloader</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
@@ -772,18 +864,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_anchor-label-assignment-visualization_11_0.png" src="../_images/notebooks_anchor-label-assignment-visualization_11_0.png"/>
-</div>
-</div>
 </section>
 <section id="Training-Batch-in-Pipeline">
 <h2 id="Training-Batch-in-Pipeline">Training Batch in Pipeline<a class="headerlink" href="#Training-Batch-in-Pipeline" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yolort.models</span> <span class="kn">import</span> <span class="n">yolov5s</span>
@@ -794,7 +879,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">annotations</span><span class="p">)</span>
@@ -802,15 +887,15 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">parse_images</span><span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">tensors</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attach_idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">targets</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="o">==</span> <span class="n">idx</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -828,17 +913,10 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_anchor-label-assignment-visualization_16_0.png" src="../_images/notebooks_anchor-label-assignment-visualization_16_0.png"/>
-</div>
-</div>
-<section id="Extractor-Intermediate-Feature">
-<h3 id="Extractor-Intermediate-Feature">Extractor Intermediate Feature<a class="headerlink" href="#Extractor-Intermediate-Feature" title="Permalink to this heading">¶</a></h3>
+<section id="提取中间特征">
+<h3 id="提取中间特征">提取中间特征<a class="headerlink" href="#提取中间特征" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yolort.utils</span> <span class="kn">import</span> <span class="n">FeatureExtractor</span>
@@ -846,7 +924,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yolo_features</span> <span class="o">=</span> <span class="n">FeatureExtractor</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">return_layers</span><span class="o">=</span><span class="p">[</span><span class="s1">'backbone'</span><span class="p">,</span> <span class="s1">'head'</span><span class="p">])</span>
@@ -859,10 +937,10 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </section>
-<section id="Obtain-Anchors-and-Strides">
-<h3 id="Obtain-Anchors-and-Strides">Obtain Anchors and Strides<a class="headerlink" href="#Obtain-Anchors-and-Strides" title="Permalink to this heading">¶</a></h3>
+<section id="获取-Anchors-和-Strides">
+<h3 id="获取-Anchors-和-Strides">获取 Anchors 和 Strides<a class="headerlink" href="#获取-Anchors-和-Strides" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_layers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">head_outputs</span><span class="p">)</span>
@@ -877,7 +955,7 @@ div.rendered_html tbody tr:hover {
 <section id="Assign-Targets-to-Anchors">
 <h3 id="Assign-Targets-to-Anchors">Assign Targets to Anchors<a class="headerlink" href="#Assign-Targets-to-Anchors" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build targets for compute_loss(), input targets(image,class,x,y,w,h)</span>
@@ -901,7 +979,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anchor_threshold</span> <span class="o">=</span> <span class="mf">4.0</span>
@@ -911,7 +989,7 @@ div.rendered_html tbody tr:hover {
 <p>What’s actually going on is the image is subdivided into a grid of squares, and the coordinates in <code class="docutils literal notranslate"><span class="pre">grid[]</span></code> are the coordinates of the upper-left corner of that square.</p>
 <p>The neural network provides <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> coordinates in the range <span class="math notranslate nohighlight">\((0, 1)\)</span> (enforced by sigmoid) which covers the square, centered at 0.5. Multiplying by two allows detected <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> coordinates to cover a larger range, slightly outside the square – otherwise it’s difficult to detect objects centered at grid boundaries. Subtracting 0.5 shifts the resulting range to <span class="math notranslate nohighlight">\((-0.5, 1.5)\)</span> which is centered around <span class="math notranslate nohighlight">\((0, 1)\)</span>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_layers</span><span class="p">):</span>
@@ -962,7 +1040,7 @@ div.rendered_html tbody tr:hover {
 <section id="Visulization-Anchor">
 <h3 id="Visulization-Anchor">Visulization Anchor<a class="headerlink" href="#Visulization-Anchor" title="Permalink to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yolort.utils.image_utils</span> <span class="kn">import</span> <span class="n">anchor_match_visualize</span>
@@ -970,26 +1048,19 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images_with_anchor</span> <span class="o">=</span> <span class="n">anchor_match_visualize</span><span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">tensors</span><span class="p">,</span> <span class="n">grid_assigner</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">anchors_encode</span><span class="p">,</span> <span class="n">head_outputs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv2_imshow</span><span class="p">(</span><span class="n">images_with_anchor</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">imshow_scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_anchor-label-assignment-visualization_31_0.png" src="../_images/notebooks_anchor-label-assignment-visualization_31_0.png"/>
 </div>
 </div>
 </section>
@@ -1009,7 +1080,7 @@ div.rendered_html tbody tr:hover {
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="how-to-align-with-ultralytics-yolov5.html" title="How to align with ultralytics yolov5"
+            <a href="how-to-align-with-ultralytics-yolov5.html" title="如何与 ultralytics yolov5 对齐"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1018,17 +1089,17 @@ div.rendered_html tbody tr:hover {
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> How to align with ultralytics yolov5 </span>
+                      class="md-footer-nav__direction"> Previous </span> 如何与 ultralytics yolov5 对齐 </span>
               </div>
             </a>
           
           
-            <a href="model-graph-visualization.html" title="Visualize model graph"
+            <a href="model-graph-visualization.html" title="可视化模型 graph"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Visualize model graph </span>
+                class="md-footer-nav__direction"> Next </span> 可视化模型 graph </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

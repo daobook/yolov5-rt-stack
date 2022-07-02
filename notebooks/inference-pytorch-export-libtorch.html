@@ -47,7 +47,7 @@
   
   
   
-    <title>Intuition for yolort &#8212; yolort  documentation</title>
+    <title>yolort 直觉 &#8212; yolort  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -60,7 +60,7 @@
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="What is the difference between yolort and yolov5" href="comparison-between-yolort-vs-yolov5.html" />
+    <link rel="next" title="yolort 和 yolov5 的差异" href="comparison-between-yolort-vs-yolov5.html" />
     <link rel="prev" title="安装 yolort" href="../installation.html" />
   
    
@@ -99,7 +99,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">YOLOv5 Runtime Stack</span>
-          <span class="md-header-nav__topic"> Intuition for yolort </span>
+          <span class="md-header-nav__topic"> yolort 直觉 </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -207,31 +207,31 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Intuition for yolort </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> yolort 直觉 </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">Intuition for yolort</a>
+      <a href="#" class="md-nav__link md-nav__link--active">yolort 直觉</a>
       
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#notebooks-inference-pytorch-export-libtorch--page-root" class="md-nav__link">Intuition for yolort</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#notebooks-inference-pytorch-export-libtorch--page-root" class="md-nav__link">yolort 直觉</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Read-an-image" class="md-nav__link">Read an image</a>
+        <li class="md-nav__item"><a href="#读取图片" class="md-nav__link">读取图片</a>
         </li>
-        <li class="md-nav__item"><a href="#Model-Definition-and-Initialization" class="md-nav__link">Model Definition and Initialization</a>
+        <li class="md-nav__item"><a href="#模型定义和初始化" class="md-nav__link">模型定义和初始化</a>
         </li>
-        <li class="md-nav__item"><a href="#Verify-the-PyTorch-backend-inference-results" class="md-nav__link">Verify the PyTorch backend inference results</a>
+        <li class="md-nav__item"><a href="#验证-PyTorch-后端推理结果" class="md-nav__link">验证 PyTorch 后端推理结果</a>
         </li>
-        <li class="md-nav__item"><a href="#Detection-output-visualisation" class="md-nav__link">Detection output visualisation</a>
+        <li class="md-nav__item"><a href="#检测输出可视化" class="md-nav__link">检测输出可视化</a>
         </li>
-        <li class="md-nav__item"><a href="#Scripting-YOLOv5" class="md-nav__link">Scripting YOLOv5</a>
+        <li class="md-nav__item"><a href="#脚本化-YOLOv5" class="md-nav__link">脚本化 YOLOv5</a>
         </li>
-        <li class="md-nav__item"><a href="#Inference-on-TorchScript-Backend" class="md-nav__link">Inference on TorchScript Backend</a>
+        <li class="md-nav__item"><a href="#对-TorchScript-后端的推理" class="md-nav__link">对 TorchScript 后端的推理</a>
         </li>
-        <li class="md-nav__item"><a href="#Verify-the-Inference-Output-on-LibTorch-backend" class="md-nav__link">Verify the Inference Output on LibTorch backend</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#在-LibTorch-后端验证推理输出" class="md-nav__link">在 LibTorch 后端验证推理输出</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Comparing-Inference-Time-between-pytorch-and-libtorch" class="md-nav__link">Comparing Inference Time between <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> and <code class="docutils literal notranslate"><span class="pre">libtorch</span></code></a>
+        <li class="md-nav__item"><a href="#比较-pytorch-和-libtorch-的推理时间" class="md-nav__link">比较 <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> 和 <code class="docutils literal notranslate"><span class="pre">libtorch</span></code> 的推理时间</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -245,28 +245,28 @@
     <li class="md-nav__item">
     
     
-      <a href="comparison-between-yolort-vs-yolov5.html" class="md-nav__link">What is the difference between yolort and yolov5</a>
+      <a href="comparison-between-yolort-vs-yolov5.html" class="md-nav__link">yolort 和 yolov5 的差异</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">How to align with ultralytics yolov5</a>
+      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">如何与 ultralytics yolov5 对齐</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="anchor-label-assignment-visualization.html" class="md-nav__link">Visualize the anchor-target assignment</a>
+      <a href="anchor-label-assignment-visualization.html" class="md-nav__link">可视化 anchor-target 赋值</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="model-graph-visualization.html" class="md-nav__link">Visualize model graph</a>
+      <a href="model-graph-visualization.html" class="md-nav__link">可视化模型 graph</a>
       
     
     </li>
@@ -292,7 +292,7 @@
     <li class="md-nav__item">
     
     
-      <a href="export-relay-inference-tvm.html" class="md-nav__link">Deploying yolort on TVM</a>
+      <a href="export-relay-inference-tvm.html" class="md-nav__link">在 TVM 上部署 yolort</a>
       
     
     </li>
@@ -343,23 +343,23 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#notebooks-inference-pytorch-export-libtorch--page-root" class="md-nav__link">Intuition for yolort</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#notebooks-inference-pytorch-export-libtorch--page-root" class="md-nav__link">yolort 直觉</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Read-an-image" class="md-nav__link">Read an image</a>
+        <li class="md-nav__item"><a href="#读取图片" class="md-nav__link">读取图片</a>
         </li>
-        <li class="md-nav__item"><a href="#Model-Definition-and-Initialization" class="md-nav__link">Model Definition and Initialization</a>
+        <li class="md-nav__item"><a href="#模型定义和初始化" class="md-nav__link">模型定义和初始化</a>
         </li>
-        <li class="md-nav__item"><a href="#Verify-the-PyTorch-backend-inference-results" class="md-nav__link">Verify the PyTorch backend inference results</a>
+        <li class="md-nav__item"><a href="#验证-PyTorch-后端推理结果" class="md-nav__link">验证 PyTorch 后端推理结果</a>
         </li>
-        <li class="md-nav__item"><a href="#Detection-output-visualisation" class="md-nav__link">Detection output visualisation</a>
+        <li class="md-nav__item"><a href="#检测输出可视化" class="md-nav__link">检测输出可视化</a>
         </li>
-        <li class="md-nav__item"><a href="#Scripting-YOLOv5" class="md-nav__link">Scripting YOLOv5</a>
+        <li class="md-nav__item"><a href="#脚本化-YOLOv5" class="md-nav__link">脚本化 YOLOv5</a>
         </li>
-        <li class="md-nav__item"><a href="#Inference-on-TorchScript-Backend" class="md-nav__link">Inference on TorchScript Backend</a>
+        <li class="md-nav__item"><a href="#对-TorchScript-后端的推理" class="md-nav__link">对 TorchScript 后端的推理</a>
         </li>
-        <li class="md-nav__item"><a href="#Verify-the-Inference-Output-on-LibTorch-backend" class="md-nav__link">Verify the Inference Output on LibTorch backend</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#在-LibTorch-后端验证推理输出" class="md-nav__link">在 LibTorch 后端验证推理输出</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Comparing-Inference-Time-between-pytorch-and-libtorch" class="md-nav__link">Comparing Inference Time between <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> and <code class="docutils literal notranslate"><span class="pre">libtorch</span></code></a>
+        <li class="md-nav__item"><a href="#比较-pytorch-和-libtorch-的推理时间" class="md-nav__link">比较 <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> 和 <code class="docutils literal notranslate"><span class="pre">libtorch</span></code> 的推理时间</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -635,8 +635,8 @@ div.rendered_html tbody tr:hover {
     .nboutput .prompt {
         display: none;
     }
-</style><section id="Intuition-for-yolort">
-<h1 id="notebooks-inference-pytorch-export-libtorch--page-root">Intuition for yolort<a class="headerlink" href="#notebooks-inference-pytorch-export-libtorch--page-root" title="Permalink to this heading">¶</a></h1>
+</style><section id="yolort-直觉">
+<h1 id="notebooks-inference-pytorch-export-libtorch--page-root">yolort 直觉<a class="headerlink" href="#notebooks-inference-pytorch-export-libtorch--page-root" title="Permalink to this heading">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -662,9 +662,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<section id="Read-an-image">
-<h2 id="Read-an-image">Read an image<a class="headerlink" href="#Read-an-image" title="Permalink to this heading">¶</a></h2>
-<p>Let’s request and pre-process the images that to be detected.</p>
+<section id="读取图片">
+<h2 id="读取图片">读取图片<a class="headerlink" href="#读取图片" title="Permalink to this heading">¶</a></h2>
+<p>请求并预处理要检测的图像。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -680,8 +680,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </section>
-<section id="Model-Definition-and-Initialization">
-<h2 id="Model-Definition-and-Initialization">Model Definition and Initialization<a class="headerlink" href="#Model-Definition-and-Initialization" title="Permalink to this heading">¶</a></h2>
+<section id="模型定义和初始化">
+<h2 id="模型定义和初始化">模型定义和初始化<a class="headerlink" href="#模型定义和初始化" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -700,13 +700,27 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">yolov5n6</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">score_thresh</span><span class="o">=</span><span class="n">score_thresh</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">img_h</span><span class="p">,</span> <span class="n">img_w</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Downloading: "https://github.com/zhiqwang/yolov5-rt-stack/releases/download/v0.5.2-alpha/yolov5_darknet_pan_n6_r60_coco-4e823e0f.pt" to /home/pc/.cache/torch/hub/checkpoints/yolov5_darknet_pan_n6_r60_coco-4e823e0f.pt
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e35f866288914c79ad4abfa76a00c019", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -731,13 +745,13 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/opt/conda/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/site-packages/torch/functional.py:568: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646755897462/work/aten/src/ATen/native/TensorShape.cpp:2228.)
   return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
 </pre></div></div>
 </div>
 </section>
-<section id="Verify-the-PyTorch-backend-inference-results">
-<h2 id="Verify-the-PyTorch-backend-inference-results">Verify the PyTorch backend inference results<a class="headerlink" href="#Verify-the-PyTorch-backend-inference-results" title="Permalink to this heading">¶</a></h2>
+<section id="验证-PyTorch-后端推理结果">
+<h2 id="验证-PyTorch-后端推理结果">验证 PyTorch 后端推理结果<a class="headerlink" href="#验证-PyTorch-后端推理结果" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -752,13 +766,13 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-tensor([[ 32.27846, 225.15259, 811.47729, 740.91077],
-        [ 50.42178, 387.48911, 241.54393, 897.61035],
-        [219.03334, 386.14346, 345.77686, 869.02582],
-        [678.05023, 374.65341, 809.80341, 874.80621]])
+tensor([[ 32.27846, 225.15266, 811.47729, 740.91071],
+        [ 50.42179, 387.48911, 241.54399, 897.61035],
+        [219.03331, 386.14352, 345.77689, 869.02582],
+        [678.05023, 374.65326, 809.80341, 874.80621]])
 </pre></div></div>
 </div>
-<p><em>Target outputs of boxes (yolov5n6, with shape of 1080x810):</em></p>
+<p><em>（yolov5n6，形状为 1080x810）的目标输出：</em></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tensor([[ 32.27846, 225.15259, 811.47729, 740.91077],
         [ 50.42178, 387.48911, 241.54393, 897.61035],
         [219.03334, 386.14346, 345.77686, 869.02582],
@@ -782,7 +796,7 @@ tensor([[ 32.27846, 225.15259, 811.47729, 740.91077],
 tensor([0.88238, 0.84486, 0.72629, 0.70077])
 </pre></div></div>
 </div>
-<p><em>Target outputs of scores: (``yolov5n6``, with shape of 1080x810)</em></p>
+<p><em>（yolov5n6，形状为 1080x810）的目标得分：</em></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tensor([0.88238, 0.84486, 0.72629, 0.70077])
 </pre></div>
 </div>
@@ -803,15 +817,14 @@ tensor([0.88238, 0.84486, 0.72629, 0.70077])
 tensor([5, 0, 0, 0])
 </pre></div></div>
 </div>
-<p><em>Target outputs of labels:</em></p>
+<p><em>目标输出的标签：</em></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tensor([5, 0, 0, 0])
 </pre></div>
 </div>
 </section>
-<section id="Detection-output-visualisation">
-<h2 id="Detection-output-visualisation">Detection output visualisation<a class="headerlink" href="#Detection-output-visualisation" title="Permalink to this heading">¶</a></h2>
-<p>First let’s get the labels of COCO datasets.</p>
-<p>Get label names first.</p>
+<section id="检测输出可视化">
+<h2 id="检测输出可视化">检测输出可视化<a class="headerlink" href="#检测输出可视化" title="Permalink to this heading">¶</a></h2>
+<p>首先，获取 COCO 数据集的标签。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -835,7 +848,7 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/coco.name
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b73354af7f8748c4884aeaaa37a0b95d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4dcce3027fbf42d999ae4beba613e632", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -859,12 +872,12 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/coco.name
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_inference-pytorch-export-libtorch_21_0.png" src="../_images/notebooks_inference-pytorch-export-libtorch_21_0.png"/>
+<img alt="../_images/notebooks_inference-pytorch-export-libtorch_20_0.png" src="../_images/notebooks_inference-pytorch-export-libtorch_20_0.png"/>
 </div>
 </div>
 </section>
-<section id="Scripting-YOLOv5">
-<h2 id="Scripting-YOLOv5">Scripting YOLOv5<a class="headerlink" href="#Scripting-YOLOv5" title="Permalink to this heading">¶</a></h2>
+<section id="脚本化-YOLOv5">
+<h2 id="脚本化-YOLOv5">脚本化 YOLOv5<a class="headerlink" href="#脚本化-YOLOv5" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -880,7 +893,7 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/coco.name
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Starting TorchScript export with torch 1.10.2+cu113...
+Starting TorchScript export with torch 1.11.0...
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -897,14 +910,14 @@ Starting TorchScript export with torch 1.10.2+cu113...
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the scripted model file for subsequent use (Optional)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 保存脚本模型文件以供后续使用(可选)</span>
 <span class="n">model_script</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">export_script_name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </section>
-<section id="Inference-on-TorchScript-Backend">
-<h2 id="Inference-on-TorchScript-Backend">Inference on TorchScript Backend<a class="headerlink" href="#Inference-on-TorchScript-Backend" title="Permalink to this heading">¶</a></h2>
+<section id="对-TorchScript-后端的推理">
+<h2 id="对-TorchScript-后端的推理">对 TorchScript 后端的推理<a class="headerlink" href="#对-TorchScript-后端的推理" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -919,15 +932,15 @@ Starting TorchScript export with torch 1.10.2+cu113...
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/coding/yolov5-rt-stack/yolort/models/yolo.py:179: UserWarning: YOLO always returns a (Losses, Detections) tuple in scripting.
+/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/site-packages/yolort/models/yolo.py:179: UserWarning: YOLO always returns a (Losses, Detections) tuple in scripting.
   warnings.warn("YOLO always returns a (Losses, Detections) tuple in scripting.")
-/coding/yolov5-rt-stack/yolort/models/yolov5.py:180: UserWarning: YOLOv5 always returns a (Losses, Detections) tuple in scripting.
+/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/site-packages/yolort/models/yolov5.py:180: UserWarning: YOLOv5 always returns a (Losses, Detections) tuple in scripting.
   warnings.warn("YOLOv5 always returns a (Losses, Detections) tuple in scripting.")
 </pre></div></div>
 </div>
 </section>
-<section id="Verify-the-Inference-Output-on-LibTorch-backend">
-<h2 id="Verify-the-Inference-Output-on-LibTorch-backend">Verify the Inference Output on LibTorch backend<a class="headerlink" href="#Verify-the-Inference-Output-on-LibTorch-backend" title="Permalink to this heading">¶</a></h2>
+<section id="在-LibTorch-后端验证推理输出">
+<h2 id="在-LibTorch-后端验证推理输出">在 LibTorch 后端验证推理输出<a class="headerlink" href="#在-LibTorch-后端验证推理输出" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -947,9 +960,9 @@ Starting TorchScript export with torch 1.10.2+cu113...
 Exported model has been tested with libtorch, and the result looks good!
 </pre></div></div>
 </div>
-<section id="Comparing-Inference-Time-between-pytorch-and-libtorch">
-<h3 id="Comparing-Inference-Time-between-pytorch-and-libtorch">Comparing Inference Time between <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> and <code class="docutils literal notranslate"><span class="pre">libtorch</span></code><a class="headerlink" href="#Comparing-Inference-Time-between-pytorch-and-libtorch" title="Permalink to this heading">¶</a></h3>
-<p><strong>Time consumed on PyTorch backend</strong></p>
+<section id="比较-pytorch-和-libtorch-的推理时间">
+<h3 id="比较-pytorch-和-libtorch-的推理时间">比较 <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> 和 <code class="docutils literal notranslate"><span class="pre">libtorch</span></code> 的推理时间<a class="headerlink" href="#比较-pytorch-和-libtorch-的推理时间" title="Permalink to this heading">¶</a></h3>
+<p><strong>PyTorch 后端消耗的时间</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -965,10 +978,10 @@ Exported model has been tested with libtorch, and the result looks good!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-23.8 ms ± 3.64 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+17.1 ms ± 54.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div></div>
 </div>
-<p><strong>Time consumed on LibTorch backend</strong></p>
+<p><strong>LibTorch 后端消耗的时间</strong></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
@@ -994,7 +1007,7 @@ Exported model has been tested with libtorch, and the result looks good!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-14 ms ± 564 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+11.3 ms ± 430 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div></div>
 </div>
 </section>
@@ -1028,12 +1041,12 @@ Exported model has been tested with libtorch, and the result looks good!
             </a>
           
           
-            <a href="comparison-between-yolort-vs-yolov5.html" title="What is the difference between yolort and yolov5"
+            <a href="comparison-between-yolort-vs-yolov5.html" title="yolort 和 yolov5 的差异"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> What is the difference between yolort and yolov5 </span>
+                class="md-footer-nav__direction"> Next </span> yolort 和 yolov5 的差异 </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

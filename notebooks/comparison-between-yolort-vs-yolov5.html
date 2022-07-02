@@ -47,7 +47,7 @@
   
   
   
-    <title>What is the difference between yolort and yolov5 &#8212; yolort  documentation</title>
+    <title>yolort 和 yolov5 的差异 &#8212; yolort  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -60,8 +60,8 @@
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="How to align with ultralytics yolov5" href="how-to-align-with-ultralytics-yolov5.html" />
-    <link rel="prev" title="Intuition for yolort" href="inference-pytorch-export-libtorch.html" />
+    <link rel="next" title="如何与 ultralytics yolov5 对齐" href="how-to-align-with-ultralytics-yolov5.html" />
+    <link rel="prev" title="yolort 直觉" href="inference-pytorch-export-libtorch.html" />
   
    
 
@@ -99,7 +99,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">YOLOv5 Runtime Stack</span>
-          <span class="md-header-nav__topic"> What is the difference between yolort and yolov5 </span>
+          <span class="md-header-nav__topic"> yolort 和 yolov5 的差异 </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -206,7 +206,7 @@
     <li class="md-nav__item">
     
     
-      <a href="inference-pytorch-export-libtorch.html" class="md-nav__link">Intuition for yolort</a>
+      <a href="inference-pytorch-export-libtorch.html" class="md-nav__link">yolort 直觉</a>
       
     
     </li>
@@ -214,23 +214,23 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> What is the difference between yolort and yolov5 </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> yolort 和 yolov5 的差异 </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">What is the difference between yolort and yolov5</a>
+      <a href="#" class="md-nav__link md-nav__link--active">yolort 和 yolov5 的差异</a>
       
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#notebooks-comparison-between-yolort-vs-yolov5--page-root" class="md-nav__link">What is the difference between yolort and yolov5</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#notebooks-comparison-between-yolort-vs-yolov5--page-root" class="md-nav__link">yolort 和 yolov5 的差异</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Prepare-environment,-image-and-model-weights-to-test" class="md-nav__link">Prepare environment, image and model weights to test</a>
+        <li class="md-nav__item"><a href="#准备测试环境，图像和模型权重" class="md-nav__link">准备测试环境，图像和模型权重</a>
         </li>
-        <li class="md-nav__item"><a href="#Load-model-as-ultralytics-and-inference" class="md-nav__link">Load model as ultralytics and inference</a>
+        <li class="md-nav__item"><a href="#加载-ultralytics-模型并推理" class="md-nav__link">加载 ultralytics 模型并推理</a>
         </li>
-        <li class="md-nav__item"><a href="#Use-yolort’s-approach-to-inferencing" class="md-nav__link">Use yolort’s approach to inferencing</a>
+        <li class="md-nav__item"><a href="#使用-yolort-方法进行推理" class="md-nav__link">使用 yolort 方法进行推理</a>
         </li>
-        <li class="md-nav__item"><a href="#Verify-the-detection-results-between-yolort-and-ultralytics" class="md-nav__link">Verify the detection results between yolort and ultralytics</a>
+        <li class="md-nav__item"><a href="#验证-yolort-和-ultralytics-之间的检测结果" class="md-nav__link">验证 yolort 和 ultralytics 之间的检测结果</a>
         </li></ul>
             </nav>
         </li>
@@ -242,21 +242,21 @@
     <li class="md-nav__item">
     
     
-      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">How to align with ultralytics yolov5</a>
+      <a href="how-to-align-with-ultralytics-yolov5.html" class="md-nav__link">如何与 ultralytics yolov5 对齐</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="anchor-label-assignment-visualization.html" class="md-nav__link">Visualize the anchor-target assignment</a>
+      <a href="anchor-label-assignment-visualization.html" class="md-nav__link">可视化 anchor-target 赋值</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="model-graph-visualization.html" class="md-nav__link">Visualize model graph</a>
+      <a href="model-graph-visualization.html" class="md-nav__link">可视化模型 graph</a>
       
     
     </li>
@@ -282,7 +282,7 @@
     <li class="md-nav__item">
     
     
-      <a href="export-relay-inference-tvm.html" class="md-nav__link">Deploying yolort on TVM</a>
+      <a href="export-relay-inference-tvm.html" class="md-nav__link">在 TVM 上部署 yolort</a>
       
     
     </li>
@@ -333,15 +333,15 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#notebooks-comparison-between-yolort-vs-yolov5--page-root" class="md-nav__link">What is the difference between yolort and yolov5</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#notebooks-comparison-between-yolort-vs-yolov5--page-root" class="md-nav__link">yolort 和 yolov5 的差异</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Prepare-environment,-image-and-model-weights-to-test" class="md-nav__link">Prepare environment, image and model weights to test</a>
+        <li class="md-nav__item"><a href="#准备测试环境，图像和模型权重" class="md-nav__link">准备测试环境，图像和模型权重</a>
         </li>
-        <li class="md-nav__item"><a href="#Load-model-as-ultralytics-and-inference" class="md-nav__link">Load model as ultralytics and inference</a>
+        <li class="md-nav__item"><a href="#加载-ultralytics-模型并推理" class="md-nav__link">加载 ultralytics 模型并推理</a>
         </li>
-        <li class="md-nav__item"><a href="#Use-yolort’s-approach-to-inferencing" class="md-nav__link">Use yolort’s approach to inferencing</a>
+        <li class="md-nav__item"><a href="#使用-yolort-方法进行推理" class="md-nav__link">使用 yolort 方法进行推理</a>
         </li>
-        <li class="md-nav__item"><a href="#Verify-the-detection-results-between-yolort-and-ultralytics" class="md-nav__link">Verify the detection results between yolort and ultralytics</a>
+        <li class="md-nav__item"><a href="#验证-yolort-和-ultralytics-之间的检测结果" class="md-nav__link">验证 yolort 和 ultralytics 之间的检测结果</a>
         </li></ul>
             </nav>
         </li>
@@ -615,15 +615,14 @@ div.rendered_html tbody tr:hover {
     .nboutput .prompt {
         display: none;
     }
-</style><section id="What-is-the-difference-between-yolort-and-yolov5">
-<h1 id="notebooks-comparison-between-yolort-vs-yolov5--page-root">What is the difference between yolort and yolov5<a class="headerlink" href="#notebooks-comparison-between-yolort-vs-yolov5--page-root" title="Permalink to this heading">¶</a></h1>
-<p>Now <code class="docutils literal notranslate"><span class="pre">yolort</span></code> adopts the same model structure as the official <code class="docutils literal notranslate"><span class="pre">yolov5</span></code>. The main difference between yolort and YOLOv5 is the strategy in pre-processing and post-processing. The main reason we have adopted a different strategy from the official one is to enable the pre-processing and post-processing modules to be jit traceable and scriptable. From this we can gain an end-to-end Graph for inferencing on <code class="docutils literal notranslate"><span class="pre">LibTorch</span></code>, <code class="docutils literal notranslate"><span class="pre">ONNX</span> <span class="pre">Runtime</span></code> and <code class="docutils literal notranslate"><span class="pre">TVM</span></code>.</p>
-<p>For pre-processing, YOLOv5 uses the <a class="reference external" href="https://en.wikipedia.org/wiki/Letterboxing_(filming)">letterboxing (padding)</a> resizing that maintains the aspect ratio. The error arises from the <code class="docutils literal notranslate"><span class="pre">interpolate</span></code> operator used in resizing. YOLOv5 uses the <a class="reference external" href="https://docs.opencv.org/4.x/da/d54/group__imgproc__transform.html#ga47a974309e9102f5f08231edc7e7529d">cv2.resize</a> operator on the input <code class="docutils literal notranslate"><span class="pre">uint8</span> <span class="pre">[0-255]</span></code> images, the operators in OpenCV are not traceable or scriptable, so we use
-<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.functional.interpolate.html#torch-nn-functional-interpolate">torch.nn.functional.interpolate</a> in yolort. Fortunately, the <code class="docutils literal notranslate"><span class="pre">interpolation</span></code> operator of PyTorch is <a class="reference external" href="https://github.com/pytorch/vision/issues/2950#issuecomment-723038041">aligned</a> with that of OpenCV, however PyTorch’s <code class="docutils literal notranslate"><span class="pre">interpolate</span></code> <a class="reference external" href="https://github.com/pytorch/pytorch/issues/5580">only supports</a> the float data type now, we can only operate with images cast to float types,
-and therefore there will introduce some errors.</p>
-<p>YOLOv5 provides a very powerful function to do the post-processing, of which we implement only a non-agnostic version, but the accuracy here should be able to be consistent with the original version. See our <a class="reference external" href="https://zhiqwang.com/yolov5-rt-stack/notebooks/how-to-align-with-ultralytics-yolov5.html">doc</a> for more details.</p>
-<section id="Prepare-environment,-image-and-model-weights-to-test">
-<h2 id="Prepare-environment,-image-and-model-weights-to-test">Prepare environment, image and model weights to test<a class="headerlink" href="#Prepare-environment,-image-and-model-weights-to-test" title="Permalink to this heading">¶</a></h2>
+</style><section id="yolort-和-yolov5-的差异">
+<h1 id="notebooks-comparison-between-yolort-vs-yolov5--page-root">yolort 和 yolov5 的差异<a class="headerlink" href="#notebooks-comparison-between-yolort-vs-yolov5--page-root" title="Permalink to this heading">¶</a></h1>
+<p>现在的 <code class="docutils literal notranslate"><span class="pre">yolort</span></code> 采用了与官方 <code class="docutils literal notranslate"><span class="pre">yolov5</span></code> 相同的模型结构。<code class="docutils literal notranslate"><span class="pre">yolort</span></code> 和 YOLOv5 的主要区别在于预处理和后处理的策略。我们采用与官方不同的策略的主要原因是使预处理和后处理模块可以 jit 跟踪和脚本化。由此可以得到端到端的 graph，用于 <code class="docutils literal notranslate"><span class="pre">LibTorch</span></code>，<code class="docutils literal notranslate"><span class="pre">ONNX</span> <span class="pre">Runtime</span></code> 和 <code class="docutils literal notranslate"><span class="pre">TVM</span></code> 的推理。</p>
+<p>对于预处理，YOLOv5 使用 <a class="reference external" href="https://en.wikipedia.org/wiki/Letterboxing_(filming)">letterboxing (padding)</a> 调整大小来保持长宽比。 该误差来自于调整大小时使用的 <code class="docutils literal notranslate"><span class="pre">interpolate</span></code> 算子。YOLOv5 在输入 <code class="docutils literal notranslate"><span class="pre">uint8</span> <span class="pre">[0-255]</span></code> 图像上使用 <a class="reference external" href="https://docs.opencv.org/4.x/da/d54/group__imgproc__transform.html#ga47a974309e9102f5f08231edc7e7529d">cv2.resize</a> 算子，OpenCV 中的算子是不可追踪或脚本化的，所以在 yolort中 使用
+<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.functional.interpolate.html#torch-nn-functional-interpolate">torch.nn.functional.interpolate</a>。幸运的是，PyTorch 的 <code class="docutils literal notranslate"><span class="pre">interpolation</span></code> 算子与 OpenCV 的插值算子是一致的，但是 PyTorch 的 <code class="docutils literal notranslate"><span class="pre">interpolate</span></code> 现在 <a class="reference external" href="https://github.com/pytorch/pytorch/issues/5580">只支持</a> float 数据类型，只能对 cast 为 float 类型的图像进行运算，因此会引入一些误差。</p>
+<p>YOLOv5 提供了非常强大的功能来进行后期处理，我们只实现了 non-agnostic 版本，但这里的准确性应该能够与原始版本一致。详见 <a class="reference external" href="https://zhiqwang.com/yolov5-rt-stack/notebooks/how-to-align-with-ultralytics-yolov5.html">文档</a> 。</p>
+<section id="准备测试环境，图像和模型权重">
+<h2 id="准备测试环境，图像和模型权重">准备测试环境，图像和模型权重<a class="headerlink" href="#准备测试环境，图像和模型权重" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -686,7 +685,7 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/zidane.jp
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b327c434960649fa95f12acbf950fca1", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8b0d6d77926c43d3ba3b51e3e47a7231", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -696,7 +695,7 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/zidane.jp
 
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
@@ -706,10 +705,48 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/zidane.jp
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Downloading https://github.com/ultralytics/yolov5/releases/download/v6.1/yolov5s6.pt to yolov5s6.pt...
+ERROR: Remote end closed connection without response
+Re-attempting https://github.com/ultralytics/yolov5/releases/download/v6.1/yolov5s6.pt to yolov5s6.pt...
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ 91 24.7M   91 22.5M    0     0  2451k      0  0:00:10  0:00:09  0:00:01 4343k
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+100 24.7M  100 24.7M    0     0  2568k      0  0:00:09  0:00:09 --:--:-- 4888k
+</pre></div></div>
+</div>
 </section>
-<section id="Load-model-as-ultralytics-and-inference">
-<h2 id="Load-model-as-ultralytics-and-inference">Load model as ultralytics and inference<a class="headerlink" href="#Load-model-as-ultralytics-and-inference" title="Permalink to this heading">¶</a></h2>
-<p>YOLOv5 provides an input-robust model wrapper named <code class="docutils literal notranslate"><span class="pre">AutoShape</span></code> for passing cv2/np/PIL/torch inputs, which includes pre-processing, inference and post-processing (NMS). This wrapper is currently only valid for pytorch inference. To peel back the essence of what’s inside, we use a vanilla interface to call yolov5. We do the pre-processing part first.</p>
+<section id="加载-ultralytics-模型并推理">
+<h2 id="加载-ultralytics-模型并推理">加载 ultralytics 模型并推理<a class="headerlink" href="#加载-ultralytics-模型并推理" title="Permalink to this heading">¶</a></h2>
+<p>YOLOv5 提供了名为 <code class="docutils literal notranslate"><span class="pre">AutoShape</span></code> 的输入健壮模型包装器，用于传递 cv2/np/PIL/torch 输入，包括预处理、推理和后处理(NMS)。这个包装器目前只对 pytorch 推理有效。为了揭示内部的本质，我们使用了名为 yolov5 的普通接口。</p>
+<p>先做预处理部分。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -734,7 +771,7 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/zidane.jp
 </pre></div>
 </div>
 </div>
-<p>Let’s visualize the letterboxed image by the way.</p>
+<p>可视化这个有 letterboxed 的图像。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -775,11 +812,11 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/zidane.jp
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/opt/conda/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+/media/pc/data/4tb/lxw/anaconda3/envs/torch/lib/python3.10/site-packages/torch/functional.py:568: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646755897462/work/aten/src/ATen/native/TensorShape.cpp:2228.)
   return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
 </pre></div></div>
 </div>
-<p>Then restore the coordinates to the original scale of the image.</p>
+<p>然后将坐标恢复到图像的原始比例。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -790,7 +827,7 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/zidane.jp
 </pre></div>
 </div>
 </div>
-<p>Now we can visualize the inference results after completing the post-processing. And set the label names first.</p>
+<p>可以将完成后处理后的推理结果可视化。并首先设置标签名称。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -813,7 +850,7 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/coco.name
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7ef1b9f5ce4945a0b285710d5ff8d6c0", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "50c7dd5eb8e24915a940f347d2240808", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -842,11 +879,11 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/coco.name
 <img alt="../_images/notebooks_comparison-between-yolort-vs-yolov5_17_0.png" src="../_images/notebooks_comparison-between-yolort-vs-yolov5_17_0.png"/>
 </div>
 </div>
-<p>At that moment we have completed the whole inference process of yolov5.</p>
+<p>这时，已经完成了 yolov5 的整个推理过程。</p>
 </section>
-<section id="Use-yolort’s-approach-to-inferencing">
-<h2 id="Use-yolort’s-approach-to-inferencing">Use yolort’s approach to inferencing<a class="headerlink" href="#Use-yolort’s-approach-to-inferencing" title="Permalink to this heading">¶</a></h2>
-<p>yolort now supports loading models trained by yolov5. Here is also an end-to-end inference pipeline, and this pipeline supports both jit tracing and scripting modes. This model can be used to export ONNX and torchscript graph and to inference on ONNX Runtime, LibTorch and TVM VirtualMachine backends.</p>
+<section id="使用-yolort-方法进行推理">
+<h2 id="使用-yolort-方法进行推理">使用 yolort 方法进行推理<a class="headerlink" href="#使用-yolort-方法进行推理" title="Permalink to this heading">¶</a></h2>
+<p>yolort 现在支持加载 yolov5 训练的模型。这里还有端到端推理管道，该管道同时支持 jit 跟踪和脚本化模式。该模型可用于导出 ONNX 和 torchscript graph，并在 ONNX Runtime, LibTorch 和 TVM VirtualMachine 后端进行推理。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -864,7 +901,7 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/coco.name
 </pre></div>
 </div>
 </div>
-<p>Its interface is also very easy to use.</p>
+<p>它的接口也很容易使用。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -885,9 +922,9 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/coco.name
 </div>
 </div>
 </section>
-<section id="Verify-the-detection-results-between-yolort-and-ultralytics">
-<h2 id="Verify-the-detection-results-between-yolort-and-ultralytics">Verify the detection results between yolort and ultralytics<a class="headerlink" href="#Verify-the-detection-results-between-yolort-and-ultralytics" title="Permalink to this heading">¶</a></h2>
-<p>We print out the results of both inferencing.</p>
+<section id="验证-yolort-和-ultralytics-之间的检测结果">
+<h2 id="验证-yolort-和-ultralytics-之间的检测结果">验证 yolort 和 ultralytics 之间的检测结果<a class="headerlink" href="#验证-yolort-和-ultralytics-之间的检测结果" title="Permalink to this heading">¶</a></h2>
+<p>打印出两个推理的结果。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -903,14 +940,14 @@ Downloading https://huggingface.co/spaces/zhiqwang/assets/resolve/main/coco.name
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Detection boxes with yolov5:
-tensor([[ 135.26688,  195.07532, 1126.30615,  718.77856],
+tensor([[ 135.26688,  195.07529, 1126.30615,  718.77856],
         [ 747.54639,   38.90421, 1154.26477,  711.03455],
-        [ 439.68539,  436.93619,  508.41635,  711.93982]], device='cuda:0')
+        [ 439.68533,  436.93619,  508.41635,  711.93982]], device='cuda:0')
 
 Detection boxes with yolort:
-tensor([[ 135.69894,  195.08270, 1126.30603,  718.74518],
-        [ 747.56873,   38.92401, 1154.24414,  710.97394],
-        [ 439.69324,  436.99841,  508.36639,  712.00159]], device='cuda:0')
+tensor([[ 135.87936,  195.12320, 1126.14148,  718.72571],
+        [ 747.56146,   38.92511, 1154.27393,  710.98151],
+        [ 439.76434,  436.97284,  508.33142,  712.02106]], device='cuda:0')
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -931,7 +968,7 @@ Detection scores with yolov5:
 tensor([0.90279, 0.82556, 0.42047], device='cuda:0')
 
 Detection scores with yolort:
-tensor([0.90279, 0.82555, 0.42183], device='cuda:0')
+tensor([0.90283, 0.82608, 0.42372], device='cuda:0')
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -978,7 +1015,7 @@ tensor([ 0,  0, 27], device='cuda:0')
 Exported model has been tested, and the result looks good!
 </pre></div></div>
 </div>
-<p>As you can see from this result, there are still some differences in the boxes, but the scores and labels are relatively accurate.</p>
+<p>从这个结果中可以看到，boxes 中仍然有一些差异，但分数和标签是相对准确的。</p>
 </section>
 </section>
 <p>View this document as a notebook:
@@ -995,7 +1032,7 @@ Exported model has been tested, and the result looks good!
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="inference-pytorch-export-libtorch.html" title="Intuition for yolort"
+            <a href="inference-pytorch-export-libtorch.html" title="yolort 直觉"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1004,17 +1041,17 @@ Exported model has been tested, and the result looks good!
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Intuition for yolort </span>
+                      class="md-footer-nav__direction"> Previous </span> yolort 直觉 </span>
               </div>
             </a>
           
           
-            <a href="how-to-align-with-ultralytics-yolov5.html" title="How to align with ultralytics yolov5"
+            <a href="how-to-align-with-ultralytics-yolov5.html" title="如何与 ultralytics yolov5 对齐"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> How to align with ultralytics yolov5 </span>
+                class="md-footer-nav__direction"> Next </span> 如何与 ultralytics yolov5 对齐 </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
